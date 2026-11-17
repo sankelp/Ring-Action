@@ -1,0 +1,1341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RingAction</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M29.2257%2038.699L28.3001%2040.9296M29.2257%2025.301L28.3001%2023.0704M34.7743%2038.699L35.6974%2040.932M35.6974%2023.0704L34.7743%2025.301M38.699%2029.2256L40.9296%2028.3001M38.699%2034.7743L40.9296%2035.6999M46.493%2015.3854C47.9135%2015.7507%2049.2323%2016.4344%2050.3494%2017.3847C51.4666%2018.3351%2052.3528%2019.5273%2052.941%2020.8709C53.5292%2022.2145%2053.804%2023.6743%2053.7445%2025.1398C53.6849%2026.6053%2053.2927%2028.0381%2052.5975%2029.3296M46.493%2015.3854C46.5688%2013.5266%2045.9272%2011.7098%2044.7009%2010.3109C43.4746%208.91193%2041.7574%208.03791%2039.9047%207.86965C38.052%207.70139%2036.2055%208.25177%2034.7473%209.40691C33.289%2010.562%2032.3306%2012.2335%2032.0703%2014.0756C32.0655%2014.0998%2032.0486%2014.1239%2031.9277%2014.0756C31.6676%2012.2331%2030.7091%2010.5612%2029.2505%209.40585C27.792%208.2505%2025.945%207.70017%2024.092%207.86877C22.2389%208.03737%2020.5216%208.91199%2019.2955%2010.3116C18.0694%2011.7112%2017.4283%2013.5287%2017.5051%2015.3878L17.5147%2015.557C17.575%2016.4776%2017.8104%2017.3782%2018.2083%2018.2105M46.493%2015.3854L46.4833%2015.557C46.423%2016.4776%2046.1876%2017.3782%2045.7897%2018.2105M46.5001%2046.5C48.6279%2046.4999%2050.6963%2045.7977%2052.3845%2044.5023C54.0726%2043.2069%2055.2862%2041.3907%2055.8369%2039.3353C56.3877%2037.2799%2056.2448%2035.1002%2055.4306%2033.1343C54.6163%2031.1684%2053.1761%2029.5261%2051.3334%2028.462M12.7465%2045.2506C12.4625%2047.4642%2012.9532%2049.708%2014.1353%2051.6011C15.3174%2053.4941%2017.1182%2054.9198%2019.2319%2055.6361C21.3456%2056.3525%2023.6421%2056.3153%2025.7316%2055.531C27.8211%2054.7467%2029.5748%2053.2636%2030.6951%2051.3333C31.1398%2050.5842%2032.8605%2050.5842%2033.2955%2051.3333C34.4136%2053.2683%2036.1676%2054.7562%2038.259%2055.5437C40.3505%2056.3312%2042.6502%2056.3696%2044.7669%2055.6526C46.8835%2054.9356%2048.6864%2053.5073%2049.8686%2051.6108C51.0508%2049.7143%2051.5395%2047.4667%2051.2513%2045.2506M17.5002%2046.5C15.3723%2046.4999%2013.3039%2045.7977%2011.6158%2044.5023C9.92767%2043.2069%208.71412%2041.3907%208.16338%2039.3353C7.61264%2037.2799%207.75547%2035.1002%208.56972%2033.1343C9.38397%2031.1684%2010.8241%2029.5261%2012.6669%2028.462M17.505%2015.3854C16.0847%2015.7509%2014.7662%2016.4349%2013.6493%2017.3854C12.5325%2018.3359%2011.6465%2019.528%2011.0585%2020.8716C10.4706%2022.2152%2010.196%2023.6749%2010.2557%2025.1403C10.3154%2026.6057%2010.7077%2028.0383%2011.4029%2029.3296M25.3009%2029.2256L23.0703%2028.3001M25.3009%2034.7743L23.0703%2035.6999M39.2501%2032C39.2501%2036.0041%2036.0041%2039.25%2032.0001%2039.25C27.996%2039.25%2024.7501%2036.0041%2024.7501%2032C24.7501%2027.9959%2027.996%2024.75%2032.0001%2024.75C36.0041%2024.75%2039.2501%2027.9959%2039.2501%2032Z%22%20stroke-width%3D%224.83333%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke%3D%22%235BC2E7%22%2F%3E%3C%2Fsvg%3E">
+<style>
+  /* ---------- tokens: Windows 11 materials, one accent ---------- */
+  :root {
+    color-scheme: light;
+    --win:#f3f3f3; --frame:#f9f9f9; --frame-stroke:rgba(0,0,0,.06);
+    --flyout:#fcfcfc; --flyout-stroke:rgba(0,0,0,.08);
+    --ctrl:rgba(255,255,255,.7); --ctrl-hover:rgba(249,249,249,.5); --ctrl-solid:#ffffff;
+    --stroke:rgba(0,0,0,.06); --stroke-b:rgba(0,0,0,.14);
+    --fill-subtle:rgba(0,0,0,.037); --fill-subtle-2:rgba(0,0,0,.024);
+    --text:rgba(0,0,0,.894); --text2:rgba(0,0,0,.62); --text3:rgba(0,0,0,.45);
+    --divider:rgba(0,0,0,.07);
+    --brand:#5BC2E7; --accent:#005fb8; --accent-hover:#1a6fc0; --accent-press:#3381c8; --on-accent:#fff;
+    --accent-soft:rgba(0,95,184,.09);
+    --seg:#ffffff; --seg-hover:#f2f4f7; --seg-stroke:rgba(0,0,0,.075);
+    --danger:#c42b1c; --danger-soft:rgba(196,43,28,.08); --ok:#0f7b0f;
+    --shadow-flyout:0 8px 16px rgba(0,0,0,.10), 0 0 1px rgba(0,0,0,.10);
+    --shadow-dialog:0 32px 64px rgba(0,0,0,.18), 0 2px 21px rgba(0,0,0,.12);
+    --font:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+    --font-display:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+    --font-small:"Segoe UI Variable Small","Segoe UI",system-ui,sans-serif;
+    --mono:"Cascadia Mono",Consolas,monospace;
+    --glyphs:"Segoe Fluent Icons","Segoe MDL2 Assets";
+    --spring:cubic-bezier(.32,.72,0,1);
+    --out:cubic-bezier(.16,1,.3,1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --win:#202020; --frame:#272727; --frame-stroke:rgba(255,255,255,.055);
+      --flyout:#2c2c2c; --flyout-stroke:rgba(255,255,255,.08);
+      --ctrl:rgba(255,255,255,.06); --ctrl-hover:rgba(255,255,255,.085); --ctrl-solid:#3a3a3a;
+      --stroke:rgba(255,255,255,.07); --stroke-b:rgba(255,255,255,.05);
+      --fill-subtle:rgba(255,255,255,.06); --fill-subtle-2:rgba(255,255,255,.04);
+      --text:#ffffff; --text2:rgba(255,255,255,.77); --text3:rgba(255,255,255,.52);
+      --divider:rgba(255,255,255,.07);
+      --accent:#60cdff; --accent-hover:#5bbde9; --accent-press:#55acd3; --on-accent:#00131f;
+      --accent-soft:rgba(96,205,255,.11);
+      --seg:#313131; --seg-hover:#3a3a3a; --seg-stroke:rgba(255,255,255,.06);
+      --danger:#ff99a4; --danger-soft:rgba(255,153,164,.1); --ok:#6ccb5f;
+      --shadow-flyout:0 8px 16px rgba(0,0,0,.36), 0 0 1px rgba(0,0,0,.5);
+      --shadow-dialog:0 32px 64px rgba(0,0,0,.5), 0 2px 21px rgba(0,0,0,.36);
+    }
+  }
+
+  /* ---------- base ---------- */
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; }
+  body { background:var(--win); color:var(--text); font:400 14px/20px var(--font); -webkit-font-smoothing:antialiased;
+         display:grid; grid-template-columns:264px minmax(0,1fr); overflow:hidden; }
+  button, input { font:inherit; color:inherit; }
+  button { cursor:pointer; }
+  :focus-visible { outline:2px solid var(--text); outline-offset:1px; border-radius:4px; }
+  .g { font-family:var(--glyphs); font-style:normal; font-weight:400; font-size:16px; line-height:1; width:16px; text-align:center; flex:none; display:inline-block; }
+  .muted { color:var(--text2); }
+  .grow { flex:1; }
+  ::-webkit-scrollbar { width:12px; height:12px; }
+  ::-webkit-scrollbar-thumb { background:var(--text3); border-radius:6px; border:4px solid transparent; background-clip:content-box; }
+  ::-webkit-scrollbar-track { background:transparent; }
+
+  /* ---------- controls ---------- */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:32px; padding:0 12px; border-radius:4px;
+         border:1px solid var(--stroke); border-bottom-color:var(--stroke-b); background:var(--ctrl); white-space:nowrap;
+         transition:background-color 120ms var(--out), transform 160ms var(--spring); }
+  .btn:hover { background:var(--ctrl-hover); }
+  .btn:active { transform:scale(.98); color:var(--text2); }
+  .btn:disabled { color:var(--text3); cursor:default; transform:none; }
+  .btn.accent { background:var(--accent); border-color:transparent; color:var(--on-accent); font-weight:600; }
+  .btn.accent:hover { background:var(--accent-hover); }
+  .btn.accent:active { background:var(--accent-press); color:var(--on-accent); }
+  .btn.accent:disabled { background:var(--fill-subtle); color:var(--text3); }
+  .btn.subtle { background:transparent; border-color:transparent; }
+  .btn.subtle:hover { background:var(--fill-subtle); }
+  .btn.danger { color:var(--danger); }
+  .iconbtn { width:32px; height:32px; display:inline-grid; place-items:center; border:0; border-radius:4px; background:transparent; color:var(--text2);
+             transition:background-color 120ms var(--out); }
+  .iconbtn:hover { background:var(--fill-subtle); color:var(--text); }
+  .iconbtn:active { background:var(--fill-subtle-2); }
+  .iconbtn:disabled { color:var(--text3); cursor:default; background:transparent; }
+  .iconbtn.sm { width:28px; height:28px; }
+  .iconbtn.sm .g { font-size:13px; }
+
+  .input { height:32px; width:100%; padding:0 11px; border-radius:4px; border:1px solid var(--stroke); border-bottom-color:var(--stroke-b);
+           background:var(--ctrl); transition:background-color 120ms var(--out); }
+  .input:hover { background:var(--ctrl-hover); }
+  .input:focus { outline:none; background:var(--ctrl-solid); border-bottom-color:transparent; box-shadow:inset 0 -2px 0 var(--accent); }
+  .input.mono { font:13px var(--mono); }
+  .input::placeholder { color:var(--text3); }
+  input[type=number].input { font-variant-numeric:tabular-nums; }
+
+  kbd { display:inline-flex; align-items:center; justify-content:center; min-width:24px; height:24px; padding:0 7px; border-radius:4px;
+        font:600 12px/1 var(--font-small); color:var(--text); background:var(--ctrl-solid);
+        border:1px solid var(--stroke); border-bottom-width:2px; border-bottom-color:var(--stroke-b); }
+  .caps { display:inline-flex; gap:4px; align-items:center; flex-wrap:wrap; }
+
+  .keyfield { display:flex; align-items:center; gap:8px; min-height:40px; padding:4px 4px 4px 8px; border-radius:4px;
+              border:1px solid var(--stroke); border-bottom-color:var(--stroke-b); background:var(--ctrl); cursor:pointer;
+              transition:background-color 120ms var(--out), border-color 120ms var(--out); }
+  .keyfield:hover { background:var(--ctrl-hover); }
+  .keyfield .ph { color:var(--text3); flex:1; padding-left:3px; }
+  .keyfield.rec { background:var(--accent-soft); border-color:var(--accent); cursor:default; }
+  .keyfield.rec .live { flex:1; display:flex; align-items:center; gap:8px; padding-left:3px; }
+  .pulse { width:8px; height:8px; border-radius:50%; background:var(--danger); flex:none; }
+
+  .seg-ctl { display:grid; grid-auto-flow:column; grid-auto-columns:1fr; gap:2px; padding:2px; border-radius:6px; background:var(--fill-subtle); }
+  .seg-ctl label { position:relative; }
+  .seg-ctl input { position:absolute; opacity:0; pointer-events:none; }
+  .seg-ctl span { display:flex; align-items:center; justify-content:center; height:30px; padding:0 6px; border-radius:4px; font-size:13px; color:var(--text2);
+                  cursor:pointer; transition:background-color 160ms var(--out), color 160ms var(--out); white-space:nowrap; }
+  .seg-ctl label:hover span { color:var(--text); }
+  .seg-ctl input:checked + span { background:var(--ctrl-solid); color:var(--text); font-weight:600;
+                                  box-shadow:0 0 0 1px var(--stroke), 0 1px 2px rgba(0,0,0,.06); }
+  .seg-ctl input:focus-visible + span { outline:2px solid var(--text); outline-offset:-2px; }
+
+  .field { display:grid; gap:8px; margin-bottom:20px; }
+  .field > .lbl { font-size:13px; font-weight:600; }
+  .field > .help { color:var(--text2); font-size:12px; line-height:16px; margin-top:-2px; }
+
+  /* ---------- sidebar ---------- */
+  aside { display:flex; flex-direction:column; min-height:0; padding:4px 4px 8px; }
+  .brand { display:flex; align-items:center; gap:12px; height:48px; padding:0 14px; font-size:13px; font-weight:600; }
+  .brand svg { width:22px; height:22px; color:var(--brand); flex:none; }
+  .sec { display:flex; align-items:center; justify-content:space-between; height:36px; padding:0 4px 0 14px; margin-top:4px;
+         font-size:12px; font-weight:600; color:var(--text2); }
+  nav { flex:1; overflow:auto; min-height:0; padding:0 4px; }
+  .nav { position:relative; display:flex; align-items:center; gap:12px; width:100%; height:36px; padding:0 10px; margin:2px 0;
+         border:0; border-radius:4px; background:transparent; text-align:left; transition:background-color 120ms var(--out); }
+  .nav:hover { background:var(--fill-subtle); }
+  .nav:active { background:var(--fill-subtle-2); }
+  .nav[aria-current="true"] { background:var(--fill-subtle); }
+  .nav[aria-current="true"]::before, .subrow[aria-current="true"]::before {
+         content:""; position:absolute; left:0; top:50%; width:3px; height:16px; margin-top:-8px; border-radius:2px; background:var(--accent);
+         }
+  .fresh::before { animation:pill 240ms var(--spring); }
+  @keyframes pill { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+  .nav .lbl { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .nav.open .lbl { font-weight:600; }
+  .nav .chev { font-size:10px; color:var(--text3); transition:transform .15s; margin-left:-4px; }
+  .nav .chev.down { transform:rotate(90deg); }
+  @media (prefers-reduced-motion: reduce) { .nav .chev { transition:none; } }
+  .nav .meta { color:var(--text3); font-size:12px; font-variant-numeric:tabular-nums; }
+  .appicon { width:20px; height:20px; border-radius:4px; flex:none; display:grid; place-items:center; object-fit:contain; }
+  .appicon.ini { background:var(--fill-subtle); color:var(--text2); font:600 11px var(--font-small); }
+  .appicon.def { color:var(--text2); }
+  .appicon.lg { width:32px; height:32px; border-radius:6px; font-size:14px; }
+
+  .sub { position:relative; margin:0 0 6px; padding-left:22px; }
+  .sub.fresh { animation:fade 200ms var(--out); }
+  .sub::before { content:""; position:absolute; left:19px; top:4px; bottom:4px; width:1px; background:var(--divider); }
+  .subrow { position:relative; display:flex; align-items:center; gap:10px; width:100%; height:32px; padding:0 8px 0 14px; margin:1px 0;
+            border:0; border-radius:4px; background:transparent; text-align:left; font-size:13px; color:var(--text2);
+            transition:background-color 120ms var(--out), color 120ms var(--out); }
+  .subrow:hover { background:var(--fill-subtle); color:var(--text); }
+  .subrow[aria-current="true"] { background:var(--fill-subtle); color:var(--text); font-weight:600; }
+  .subrow .lbl { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .subrow .g { font-size:12px; color:var(--text3); }
+  .subrow.add { color:var(--text3); }
+  .subrow.add:hover { color:var(--text); }
+  .subrow[draggable="true"] { cursor:grab; }
+  .subrow.dragging { opacity:.4; }
+  .subrow.over { box-shadow:inset 0 2px 0 var(--accent); }
+  .settings-row { margin-top:4px; }
+
+  /* ---------- content frame ---------- */
+  .frame { display:grid; grid-template-columns:minmax(0,1fr) 368px; min-height:0; margin-top:8px;
+           background:var(--frame); border:1px solid var(--frame-stroke); border-right:0; border-bottom:0; border-top-left-radius:8px; overflow:hidden; }
+  .stage { position:relative; min-width:0; overflow:auto; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 32px 96px; }
+  .stage-head { text-align:center; margin-bottom:24px; animation:fade 240ms var(--out); }
+  .stage-head h1 { margin:0; font:600 20px/28px var(--font-display); }
+  .stage-head p { margin:4px 0 0; color:var(--text2); font-size:13px; }
+  .ring { width:min(440px, 100%, calc(100vh - 260px)); min-width:260px; aspect-ratio:1; }
+  .ring svg { width:100%; height:100%; display:block; overflow:visible; }
+  .ring .body { filter:drop-shadow(0 10px 28px rgba(0,0,0,.07)); }
+  .seg path { fill:var(--seg); stroke:var(--seg-stroke); stroke-width:1; cursor:pointer; transition:fill 180ms var(--out); }
+  .seg:hover path { fill:var(--seg-hover); }
+  .seg.sel path { fill:var(--accent); stroke:var(--accent); }
+  .seg text { pointer-events:none; text-anchor:middle; dominant-baseline:central; fill:var(--text); transition:fill 180ms var(--out); }
+  .seg .sg { font:14px var(--glyphs); fill:var(--text2); }
+  .seg .sl { font:600 12px var(--font-small); }
+  .seg.sel text { fill:var(--on-accent); }
+  .hub { fill:var(--frame); stroke:var(--seg-stroke); }
+  .hub-t { font:600 13px var(--font-small); fill:var(--text); text-anchor:middle; dominant-baseline:central; }
+  .hub-s { font:12px var(--font-small); fill:var(--text3); text-anchor:middle; dominant-baseline:central; }
+  .stage-hint { margin:20px 0 0; color:var(--text3); font-size:12px; min-height:16px; text-align:center; }
+  .empty-ring { display:grid; place-items:center; text-align:center; gap:4px; }
+  .empty-ring p { margin:0; color:var(--text2); font-size:13px; max-width:240px; }
+
+  /* ---------- panel ---------- */
+  .panel { border-left:1px solid var(--divider); overflow:auto; min-height:0; }
+  .pv { padding:20px 24px 28px; animation:enter 200ms var(--out); }
+  @keyframes enter { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+  @keyframes fade { from { opacity:0; } to { opacity:1; } }
+  .pv-top { display:flex; align-items:center; gap:4px; height:32px; margin:0 -8px 16px; }
+  .back { display:inline-flex; align-items:center; gap:8px; height:32px; padding:0 8px; border:0; border-radius:4px; background:transparent; color:var(--text2); font-size:13px; max-width:60%; }
+  .back:hover { background:var(--fill-subtle); color:var(--text); }
+  .back .g { font-size:12px; }
+  .back span:last-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pv-count { margin-left:auto; color:var(--text3); font-size:12px; font-variant-numeric:tabular-nums; }
+  .pv-head { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+  .pv-head h2 { margin:0; font:600 20px/28px var(--font-display); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pv-head p { margin:0; color:var(--text2); font-size:12px; line-height:16px; }
+  .prose { color:var(--text2); font-size:13px; line-height:20px; margin:0 0 20px; }
+  .stat { display:flex; align-items:baseline; justify-content:space-between; padding:12px 0; border-top:1px solid var(--divider); border-bottom:1px solid var(--divider); margin-bottom:20px; font-size:13px; }
+  .stat b { font:600 20px/28px var(--font-display); font-variant-numeric:tabular-nums; }
+  .row-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .danger-zone { margin-top:32px; padding-top:16px; border-top:1px solid var(--divider); }
+  .pv-foot { margin-top:28px; padding-top:16px; border-top:1px solid var(--divider); display:flex; align-items:center; gap:12px; }
+  .pv-foot .help { color:var(--text3); font-size:12px; line-height:16px; }
+
+  /* macro steps: a quiet timeline */
+  .steps { position:relative; display:grid; gap:8px; margin-bottom:12px; }
+  .steps::before { content:""; position:absolute; left:13px; top:20px; bottom:20px; width:1px; background:var(--divider); }
+  .step { display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:10px; align-items:center; animation:enter 180ms var(--out); }
+  .node { position:relative; width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:var(--frame);
+          border:1px solid var(--stroke); color:var(--text2); }
+  .node .g { font-size:12px; }
+  .step-acts { display:flex; opacity:0; transition:opacity 140ms var(--out); }
+  .step:hover .step-acts, .step:focus-within .step-acts { opacity:1; }
+  input.switch { appearance:none; -webkit-appearance:none; flex:none; width:40px; height:20px; border-radius:10px; margin:0; cursor:pointer; position:relative;
+    background:transparent; border:1px solid var(--text2); transition:background .15s, border-color .15s; }
+  input.switch::before { content:''; position:absolute; left:4px; top:50%; width:12px; height:12px; margin-top:-6px; border-radius:50%; background:var(--text2);
+    transition:transform .15s, background .15s, width .15s; }
+  input.switch:hover::before { width:14px; margin-top:-7px; }
+  input.switch:checked { background:var(--accent); border-color:var(--accent); }
+  input.switch:checked::before { background:var(--on-accent, #fff); transform:translateX(20px); }
+  input.switch:focus-visible { outline:2px solid var(--text); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce) { input.switch, input.switch::before { transition:none; } }
+  .stabs { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:6px; margin-top:12px; }
+  .spill { display:inline-flex; align-items:center; height:30px; border-radius:6px; border:1px solid transparent; transition:background-color .12s, border-color .12s; }
+  .spill:hover { background:var(--fill-subtle); }
+  .spill.on { background:var(--fill-subtle-2, var(--fill-subtle)); border-color:var(--divider); }
+  .spill .sel, .spill .ed { border:0; background:transparent; font:inherit; cursor:pointer; touch-action:manipulation; }
+  .spill .sel { height:100%; padding:0 4px 0 12px; border-radius:6px 0 0 6px; color:var(--text2); font-size:13px; }
+  .spill.on .sel, .spill:hover .sel { color:var(--text); }
+  .spill.on .sel { font-weight:600; }
+  .spill .ed { width:28px; height:100%; display:grid; place-items:center; border-radius:0 6px 6px 0; color:var(--text3); transition:color .12s, background-color .12s; }
+  .spill .ed .g { font-size:13px; }
+  .spill .ed:hover { color:var(--text); background:var(--fill-subtle-2, var(--fill-subtle)); }
+  .spill .sel:focus-visible, .spill .ed:focus-visible { outline:2px solid var(--text); outline-offset:-2px; }
+  .spill.add { width:30px; justify-content:center; }
+  .spill.add .sel { padding:0; width:100%; border-radius:6px; }
+  .seg-ctl.wrap { grid-auto-flow:row; grid-template-columns:repeat(3, minmax(0, 1fr)); }
+  .seg-ctl.wrap span { padding:0 4px; white-space:nowrap; }
+  dialog { overscroll-behavior:contain; }
+  @media (prefers-reduced-motion: reduce) { .spill, .spill .ed { transition:none; } }
+  .with-btn { display:flex; align-items:center; gap:8px; }
+  .with-btn .input { flex:1; min-width:0; }
+  .with-btn .btn { flex:none; }
+  .keyrow { display:flex; flex-direction:column; align-items:stretch; gap:8px; }   /* hold sits under the keys: the drawer is too narrow for both side by side */
+  .keyrow .wait { justify-content:flex-start; }
+  .step.inl { grid-template-columns:28px minmax(0,1fr); }
+  .wait .step-acts { margin-left:auto; }
+  .wait-g { display:inline-flex; align-items:center; gap:6px; font-size:13px; }
+  .keyrow .wait .wait-g .input, .wait-g .input { width:56px; padding-left:8px; padding-right:4px; }
+  .keyrow .wait.row2 { position:relative; flex-wrap:nowrap; gap:6px 10px; min-height:32px; }
+  .keyrow .wait.row2 .step-acts { position:absolute; right:0; top:50%; transform:translateY(-50%); background:var(--frame); border-radius:6px; }   /* overlay on hover: no space reserved */
+  /* the editor's own text is not selectable (stops Edge's selection mini menu); fields stay selectable */
+  body { -webkit-user-select:none; user-select:none; }
+  input, textarea, select, [contenteditable="true"], .selectable { -webkit-user-select:text; user-select:text; }
+  .seqbar { display:flex; align-items:center; gap:10px; margin-left:30px; margin-top:4px; font-size:13px; }
+  .seqbar .rec-dot { width:8px; height:8px; border-radius:50%; background:var(--danger); flex:none; }
+  .seqbar .grow { flex:1; }
+  .devrow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .add-steps { flex-wrap:wrap; }
+  .keyrow .wait .input { width:76px; }
+  .wait { display:flex; align-items:center; gap:8px; font-size:13px; }
+  .wait .input { width:96px; }
+  .add-steps { display:flex; gap:4px; margin-left:30px; }
+  .add-steps .btn { height:28px; padding:0 10px; font-size:13px; }
+  .add-steps .g { font-size:12px; }
+
+  /* ---------- flyouts, dialogs, toast, save bar ---------- */
+  .flyout { position:fixed; z-index:30; background:var(--flyout); border:1px solid var(--flyout-stroke); border-radius:8px; box-shadow:var(--shadow-flyout);
+            opacity:0; transform:translateY(-4px); transition:opacity 140ms var(--out), transform 200ms var(--spring); }
+  .flyout.up { transform:translateY(4px); }
+  .flyout.on { opacity:1; transform:none; }
+  .menu { min-width:200px; padding:4px; }
+  .mi { display:flex; align-items:center; gap:12px; width:100%; height:32px; padding:0 12px; border:0; border-radius:4px; background:transparent; text-align:left; font-size:13px; }
+  .mi:hover, .mi:focus-visible { background:var(--fill-subtle); outline:none; }
+  .mi:disabled { color:var(--text3); cursor:default; background:transparent; }
+  .mi .g { font-size:14px; color:var(--text2); }
+  .mi.danger, .mi.danger .g { color:var(--danger); }
+  .mi .kb { margin-left:auto; color:var(--text3); font-size:12px; }
+  .msep { height:1px; background:var(--divider); margin:4px -4px; }
+  .pop { width:320px; padding:20px; }
+  .pop h3 { margin:0 0 16px; font:600 14px/20px var(--font); }
+  .pop .field:last-child { margin-bottom:0; }
+
+  dialog { width:min(460px, 92vw); padding:0; border:1px solid var(--flyout-stroke); border-radius:8px; background:var(--flyout); color:var(--text); box-shadow:var(--shadow-dialog); }
+  dialog[open] { animation:dlg 240ms var(--spring); }
+  @keyframes dlg { from { opacity:0; transform:scale(1.04); } to { opacity:1; transform:none; } }
+  dialog::backdrop { background:rgba(0,0,0,.3); }
+  .dlg-body { padding:24px 24px 16px; }
+  .dlg-body h3 { margin:0 0 12px; font:600 20px/28px var(--font-display); }
+  .dlg-body h2 { margin:0 0 12px; font:600 20px/28px var(--font-display); }
+  .pop h2 { margin:0 0 16px; font:600 14px/20px var(--font); }
+  .keyrow .wait .wait-g .input, .wait-g .input { width:72px; padding-left:10px; padding-right:8px; }
+  .seg-ctl.wrap span { padding:0 8px; }
+  .dlg-body p { margin:0; color:var(--text2); font-size:14px; }
+  .dlg-foot { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:24px; background:var(--win); border-top:1px solid var(--divider); }
+  .dlg-foot.split { grid-template-columns:auto auto 1fr auto; }
+  .search { position:relative; }
+  .search .g { position:absolute; left:11px; top:8px; color:var(--text3); font-size:14px; }
+  .search .input { padding-left:34px; }
+  .picker { margin-top:12px; height:264px; overflow:auto; margin-left:-8px; margin-right:-8px; }
+  .pick { display:flex; align-items:center; gap:12px; width:100%; height:40px; padding:0 12px; border:0; border-radius:4px; background:transparent; text-align:left; }
+  .pick:hover, .pick:focus-visible { background:var(--fill-subtle); outline:none; }
+  .pick .lbl { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pick .tag { font-size:12px; color:var(--text3); }
+  .pick-empty { padding:24px 12px; color:var(--text3); text-align:center; font-size:13px; }
+
+  .toast { position:absolute; left:50%; top:20px; z-index:20; display:flex; align-items:center; gap:12px; max-width:min(520px, 90%);
+           padding:8px 8px 8px 16px; min-height:44px; background:var(--flyout); border:1px solid var(--flyout-stroke); border-radius:8px; box-shadow:var(--shadow-flyout);
+           opacity:0; transform:translate(-50%, -8px); pointer-events:none; transition:opacity 160ms var(--out), transform 240ms var(--spring); font-size:13px; }
+  .toast.on { opacity:1; transform:translate(-50%, 0); pointer-events:auto; }
+  .toast:not(:has(button)) { padding-right:16px; }
+
+  .savebar { position:absolute; left:50%; bottom:24px; z-index:10; display:flex; align-items:center; gap:12px; padding:8px 8px 8px 16px;
+             background:var(--flyout); border:1px solid var(--flyout-stroke); border-radius:8px; box-shadow:var(--shadow-flyout); font-size:13px;
+             opacity:0; transform:translate(-50%, 12px); pointer-events:none; transition:opacity 180ms var(--out), transform 280ms var(--spring); max-width:calc(100% - 48px); }
+  .savebar.on { opacity:1; transform:translate(-50%, 0); pointer-events:auto; }
+  .savebar .dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; }
+  .savebar.err .dot { background:var(--danger); }
+  .savebar.err { border-color:var(--danger); }
+  .savebar .msg { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .savebar .ok { color:var(--ok); }
+  .savebar .hintkb { color:var(--text3); font-size:12px; margin-right:4px; }
+  .savebar.done { padding-right:16px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1120px) { body { grid-template-columns:232px minmax(0,1fr); } .frame { grid-template-columns:minmax(0,1fr) 332px; } }
+  @media (max-width: 880px) {
+    body { grid-template-columns:1fr; grid-template-rows:auto 1fr; overflow:auto; }
+    aside { max-height:none; } nav { max-height:40vh; }
+    .frame { grid-template-columns:1fr; border-right:1px solid var(--frame-stroke); border-top-right-radius:8px; margin:0 8px; overflow:visible; }
+    .panel { border-left:0; border-top:1px solid var(--divider); }
+    .stage { padding:24px 16px 88px; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before { animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+<aside aria-label="Rings">
+  <div class="brand">
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.83" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M29.2257 38.699L28.3001 40.9296M29.2257 25.301L28.3001 23.0704M34.7743 38.699L35.6974 40.932M35.6974 23.0704L34.7743 25.301M38.699 29.2256L40.9296 28.3001M38.699 34.7743L40.9296 35.6999M46.493 15.3854C47.9135 15.7507 49.2323 16.4344 50.3494 17.3847C51.4666 18.3351 52.3528 19.5273 52.941 20.8709C53.5292 22.2145 53.804 23.6743 53.7445 25.1398C53.6849 26.6053 53.2927 28.0381 52.5975 29.3296M46.493 15.3854C46.5688 13.5266 45.9272 11.7098 44.7009 10.3109C43.4746 8.91193 41.7574 8.03791 39.9047 7.86965C38.052 7.70139 36.2055 8.25177 34.7473 9.40691C33.289 10.562 32.3306 12.2335 32.0703 14.0756C32.0655 14.0998 32.0486 14.1239 31.9277 14.0756C31.6676 12.2331 30.7091 10.5612 29.2505 9.40585C27.792 8.2505 25.945 7.70017 24.092 7.86877C22.2389 8.03737 20.5216 8.91199 19.2955 10.3116C18.0694 11.7112 17.4283 13.5287 17.5051 15.3878L17.5147 15.557C17.575 16.4776 17.8104 17.3782 18.2083 18.2105M46.493 15.3854L46.4833 15.557C46.423 16.4776 46.1876 17.3782 45.7897 18.2105M46.5001 46.5C48.6279 46.4999 50.6963 45.7977 52.3845 44.5023C54.0726 43.2069 55.2862 41.3907 55.8369 39.3353C56.3877 37.2799 56.2448 35.1002 55.4306 33.1343C54.6163 31.1684 53.1761 29.5261 51.3334 28.462M12.7465 45.2506C12.4625 47.4642 12.9532 49.708 14.1353 51.6011C15.3174 53.4941 17.1182 54.9198 19.2319 55.6361C21.3456 56.3525 23.6421 56.3153 25.7316 55.531C27.8211 54.7467 29.5748 53.2636 30.6951 51.3333C31.1398 50.5842 32.8605 50.5842 33.2955 51.3333C34.4136 53.2683 36.1676 54.7562 38.259 55.5437C40.3505 56.3312 42.6502 56.3696 44.7669 55.6526C46.8835 54.9356 48.6864 53.5073 49.8686 51.6108C51.0508 49.7143 51.5395 47.4667 51.2513 45.2506M17.5002 46.5C15.3723 46.4999 13.3039 45.7977 11.6158 44.5023C9.92767 43.2069 8.71412 41.3907 8.16338 39.3353C7.61264 37.2799 7.75547 35.1002 8.56972 33.1343C9.38397 31.1684 10.8241 29.5261 12.6669 28.462M17.505 15.3854C16.0847 15.7509 14.7662 16.4349 13.6493 17.3854C12.5325 18.3359 11.6465 19.528 11.0585 20.8716C10.4706 22.2152 10.196 23.6749 10.2557 25.1403C10.3154 26.6057 10.7077 28.0383 11.4029 29.3296M25.3009 29.2256L23.0703 28.3001M25.3009 34.7743L23.0703 35.6999M39.2501 32C39.2501 36.0041 36.0041 39.25 32.0001 39.25C27.996 39.25 24.7501 36.0041 24.7501 32C24.7501 27.9959 27.996 24.75 32.0001 24.75C36.0041 24.75 39.2501 27.9959 39.2501 32Z"/></svg>
+    RingAction
+  </div>
+  <div class="sec"><span>Rings</span><button class="iconbtn sm" id="addRing" aria-label="Add an app ring" title="Add an app ring"><span class="g">&#xE710;</span></button></div>
+  <nav id="nav"></nav>
+  <button class="nav settings-row" id="settingsBtn" aria-haspopup="dialog">
+    <span class="g muted">&#xE713;</span><span class="lbl">Settings</span><span class="meta" id="settingsMeta"></span>
+  </button>
+</aside>
+
+<div class="frame">
+  <section class="stage" aria-label="Ring preview">
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="stage-head" id="stageHead"><h1 id="stageTitle"></h1><p id="stageSub"></p></div>
+    <div class="ring" id="ring"></div>
+    <p class="stage-hint" id="stageHint"></p>
+    <div class="savebar" id="savebar" aria-live="polite"></div>
+  </section>
+  <section class="panel" id="panel" aria-label="Details"></section>
+</div>
+
+<dialog id="appDialog" aria-labelledby="appDlgTitle">
+  <form method="dialog" id="appForm">
+    <div class="dlg-body">
+      <h2 id="appDlgTitle">Add an app ring</h2>
+      <div class="search"><span class="g" aria-hidden="true">&#xE721;</span>
+        <input class="input" id="appSearch" placeholder="Search running apps or type a name" autocomplete="off" aria-label="App name"></div>
+      <div class="picker" id="picker" role="listbox" aria-label="Running apps"></div>
+    </div>
+    <div class="dlg-foot split">
+      <button class="btn subtle" type="button" id="detectBtn"><span class="g">&#xE916;</span>Detect active app</button>
+      <button class="btn subtle" type="button" id="browseBtn"><span class="g">&#xE8E5;</span>Browse for app&hellip;</button>
+      <span></span>
+      <button class="btn" type="button" id="appCancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="setDlg" aria-labelledby="setDlgTitle">
+  <form id="setForm">
+    <div class="dlg-body">
+      <h2 id="setDlgTitle">Rename Set</h2>
+      <label class="lbl" for="setName">Name</label>
+      <input class="input" id="setName" name="set-name" maxlength="20" autocomplete="off" spellcheck="false" placeholder="Set name…">
+    </div>
+    <div class="dlg-foot" style="grid-template-columns:auto auto 1fr auto auto">
+      <button type="button" class="btn subtle danger" id="setRemove">Remove Set</button>
+      <button type="button" class="btn subtle" id="setDup">Duplicate Set</button><span></span>
+      <button type="button" class="btn" id="setCancel">Cancel</button>
+      <button type="submit" class="btn accent">Rename</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="importDlg" aria-labelledby="importTitle">
+  <div class="dlg-body">
+    <h2 id="importTitle">Import Config</h2>
+    <p id="importText" class="muted" style="margin:8px 0 0"></p>
+    <p id="importWarn" class="muted" style="margin:8px 0 0" hidden></p>
+  </div>
+  <div class="dlg-foot" style="grid-template-columns:auto 1fr auto auto">
+    <button type="button" class="btn" id="importCancel">Cancel</button><span></span>
+    <button type="button" class="btn" id="importAdd">Add to Mine</button>
+    <button type="button" class="btn accent" id="importReplace">Replace Mine</button>
+  </div>
+</dialog>
+
+<dialog id="confirmDlg" aria-labelledby="confirmTitle">
+  <div class="dlg-body"><h2 id="confirmTitle"></h2><p id="confirmText"></p></div>
+  <div class="dlg-foot"><button class="btn accent" id="confirmYes"></button><button class="btn" id="confirmNo">Cancel</button></div>
+</dialog>
+
+<script>
+(function () {
+  'use strict';
+  var TOKEN = new URLSearchParams(location.search).get('t') || sessionStorage.getItem('t') || '';
+  try { sessionStorage.setItem('t', TOKEN); } catch (e) {}
+  var MAX = 12;
+  var TYPES = [
+    { id: 'shortcut', name: 'Shortcut', g: '' },
+    { id: 'sequence', name: 'Macro',    g: '' },
+    { id: 'launch',   name: 'Launch',   g: '' },
+    { id: 'url',      name: 'Link',     g: '' },
+    { id: 'command',  name: 'Command',  g: '' },
+    { id: 'preset',  name: 'Switch set', g: '\uE8AB' }
+  ];
+  var STEP_G = { keys: '', text: '', delay: '' };
+
+  var cfg = null, saved = '', selRing = null, selItem = -1;
+  var recording = null, saveState = 'idle', saveMsg = '', badIcons = {}, navFresh = false, subFresh = false, barKey = '';
+
+  // ---------- tiny DOM helpers ----------
+  function $(id) { return document.getElementById(id); }
+  function h(tag, attrs) {
+    var el = document.createElement(tag);
+    for (var k in (attrs || {})) {
+      var v = attrs[k];
+      if (v == null || v === false) continue;
+      if (k === 'class') el.className = v;
+      else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? '' : v);
+    }
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (c == null || c === false) continue;
+      el.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    }
+    return el;
+  }
+  var NS = 'http://www.w3.org/2000/svg';
+  function s(tag, attrs, text) {
+    var el = document.createElementNS(NS, tag);
+    for (var k in (attrs || {})) el.setAttribute(k, attrs[k]);
+    if (text != null) el.textContent = text;
+    return el;
+  }
+  function glyph(ch) { return h('span', { 'class': 'g', 'aria-hidden': 'true' }, ch); }
+  function iconBtn(ch, label, fn, sm) {
+    return h('button', { 'class': 'iconbtn' + (sm ? ' sm' : ''), type: 'button', 'aria-label': label, title: label, onclick: fn }, glyph(ch));
+  }
+  function typeOf(id) { for (var i = 0; i < TYPES.length; i++) if (TYPES[i].id === id) return TYPES[i]; return TYPES[0]; }
+  function ci(a, b) { a = a.toLowerCase(); b = b.toLowerCase(); return a < b ? -1 : a > b ? 1 : 0; }
+  // A ring can have up to four sets of tiles. Set 1 is the ring's normal list; sets 2-4 live in cfg.pages.
+  var selSet = 0;
+  function setKey(k) { return k === null ? '(default)' : k; }
+  function extraSets(k) { return (cfg.pages && cfg.pages[setKey(k)]) || []; }
+  function setCount(k) { return 1 + extraSets(k).length; }
+  function setName(k, p) {
+    if (p === 0) return (cfg.pageNames && cfg.pageNames[setKey(k)]) || 'Set 1';
+    var e = extraSets(k)[p - 1]; return (e && e.name) || 'Set ' + (p + 1);
+  }
+  function listFor(k, p) {
+    if (p === undefined) p = (k === selRing) ? selSet : 0;
+    if (p > 0) { var e = extraSets(k)[p - 1]; return e ? e.items : []; }
+    return (k === null ? cfg['default'] : cfg.apps[k]) || [];
+  }
+  function totalItems(k) { var n = listFor(k, 0).length; extraSets(k).forEach(function (e) { n += e.items.length; }); return n; }
+  function addSet() {
+    var key = setKey(selRing); cfg.pages = cfg.pages || {}; cfg.pages[key] = cfg.pages[key] || [];
+    if (cfg.pages[key].length >= 3) return;
+    cfg.pages[key].push({ name: 'Set ' + (cfg.pages[key].length + 2), items: [] });
+    selSet = cfg.pages[key].length; selItem = -1; navFresh = true; subFresh = true; renderAll(); touch();
+  }
+  function removeSet(p) {
+    var key = setKey(selRing), ex = extraSets(selRing); if (p < 1 || !ex[p - 1]) return;
+    function go() { ex.splice(p - 1, 1); if (!ex.length) delete cfg.pages[key]; selSet = 0; selItem = -1; renderAll(); touch(); }
+    if (ex[p - 1].items.length) confirm('Remove ' + setName(selRing, p) + '?', 'Its ' + ex[p - 1].items.length + ' item(s) will be removed. You can discard the change until you save.', 'Remove', go);
+    else go();
+  }
+  // Copies a set (its tiles and a "copy" name) into the next free slot and switches to it. Four sets per ring at most.
+  function duplicateSet(p) {
+    var key = setKey(selRing); cfg.pages = cfg.pages || {}; cfg.pages[key] = cfg.pages[key] || [];
+    if (cfg.pages[key].length >= 3) return;
+    var items = JSON.parse(JSON.stringify(listFor(selRing, p)));
+    var name = (setName(selRing, p) + ' copy').slice(0, 20);
+    cfg.pages[key].push({ name: name, items: items });
+    selSet = cfg.pages[key].length; selItem = -1; navFresh = true; subFresh = true;
+    renderAll(); touch(); toast('Duplicated as ' + name);
+  }
+  function renameSet(p, val) {
+    val = val.trim().slice(0, 20);
+    if (p === 0) { cfg.pageNames = cfg.pageNames || {}; if (val) cfg.pageNames[setKey(selRing)] = val; else delete cfg.pageNames[setKey(selRing)]; }
+    else { var e = extraSets(selRing)[p - 1]; if (e) e.name = val || ('Set ' + (p + 1)); }
+    touch(); renderTabs(); renderNav();
+  }
+  function openSetDialog(p) {
+    var d = $('setDlg'), inp = $('setName'), rm = $('setRemove');
+    $('setDlgTitle').textContent = 'Rename Set ' + (p + 1);
+    inp.value = setName(selRing, p);
+    rm.disabled = p === 0;   // Set 1 is the ring itself, so a lone set can never be removed
+    var dup = $('setDup'); dup.disabled = setCount(selRing) >= 4; dup.title = dup.disabled ? 'A ring holds up to 4 sets' : '';
+    dup.onclick = function () { d.close(); duplicateSet(p); };
+    $('setForm').onsubmit = function (e) { e.preventDefault(); d.close(); renameSet(p, inp.value); };
+    rm.onclick = function () { d.close(); removeSet(p); };
+    $('setCancel').onclick = function () { d.close(); };
+    d.showModal(); inp.focus(); inp.select();
+  }
+  function renderTabs() {
+    var old = $('setTabs'); if (old) old.remove();
+    var n = setCount(selRing);
+    var t = h('div', { id: 'setTabs', 'class': 'stabs', role: 'group', 'aria-label': 'Sets' });
+    for (var p = 0; p < n; p++) (function (p) {
+      var nm = setName(selRing, p);
+      t.appendChild(h('div', { 'class': 'spill' + (p === selSet ? ' on' : '') },
+        h('button', { 'class': 'sel', type: 'button', 'aria-pressed': String(p === selSet),
+          onclick: function () { if (p === selSet) return; selSet = p; selItem = -1; navFresh = true; subFresh = true; renderAll(); } }, nm),
+        h('button', { 'class': 'ed', type: 'button', 'aria-label': 'Rename ' + nm, title: 'Rename ' + nm, onclick: function () { openSetDialog(p); } }, glyph('\uE70F'))));
+    })(p);
+    if (n < 4) t.appendChild(h('div', { 'class': 'spill add' },
+      h('button', { 'class': 'sel', type: 'button', 'aria-label': 'Add set', title: 'Add set', onclick: addSet }, '+')));
+    $('stageHead').appendChild(t);
+  }
+  function items() { return listFor(selRing); }
+  function cur() { return selItem >= 0 ? items()[selItem] || null : null; }
+  function ringName(k) { return k === null ? 'Default' : k; }
+  function trunc(t, n) { t = t || ''; return t.length > n ? t.slice(0, n - 1) + '…' : t; }
+
+  function caps(chord) {
+    var parts = (chord || '').split('+').map(function (p) { return p.trim(); }).filter(Boolean);
+    if (/\+\s*$/.test(chord || '') && chord.length > 1) parts.push('+');
+    var box = h('span', { 'class': 'caps' });
+    parts.forEach(function (p) { box.appendChild(h('kbd', {}, p)); });
+    return box;
+  }
+
+  function appIcon(k, large) {
+    var cls = 'appicon' + (large ? ' lg' : '');
+    if (k === null) {
+      var d = h('span', { 'class': cls + ' def', 'aria-hidden': 'true' });
+      d.innerHTML = '<svg viewBox="0 0 24 24" width="' + (large ? 26 : 18) + '" height="' + (large ? 26 : 18) + '" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/></svg>';
+      return d;
+    }
+    function ini() { return h('span', { 'class': cls + ' ini', 'aria-hidden': 'true' }, k.charAt(0).toUpperCase()); }
+    if (badIcons[k.toLowerCase()]) return ini();
+    var img = h('img', { 'class': cls, alt: '', src: '/api/icon?name=' + encodeURIComponent(k) + '&keep=1&t=' + TOKEN });
+    img.addEventListener('error', function () { badIcons[k.toLowerCase()] = true; if (img.parentNode) img.parentNode.replaceChild(ini(), img); });
+    return img;
+  }
+
+  // ---------- server ----------
+  function api(path, opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({ 'X-Token': TOKEN }, opts.headers || {});
+    return fetch(path, opts).then(function (r) {
+      return r.text().then(function (txt) {
+        var data; try { data = JSON.parse(txt); } catch (e) { data = txt; }
+        if (!r.ok) throw new Error((data && data.error) || ('HTTP ' + r.status));
+        return data;
+      });
+    });
+  }
+
+  // ---------- toast ----------
+  var toastTimer;
+  function toast(msg, opts) {
+    opts = opts || {};
+    var t = $('toast'); t.textContent = '';
+    t.appendChild(h('span', {}, msg));
+    if (opts.action) t.appendChild(h('button', { 'class': 'btn subtle', type: 'button', onclick: function () { hideToast(); opts.action.run(); } }, opts.action.label));
+    t.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, opts.ms || 2600);
+  }
+  function hideToast() { $('toast').classList.remove('on'); }
+
+  // ---------- dirty state + save bar ----------
+  function isDirty() { return cfg && JSON.stringify(cfg) !== saved; }
+  function touch() {
+    if (saveState === 'done' || saveState === 'error') saveState = 'idle';
+    renderSaveBar();
+  }
+  function renderSaveBar() {
+    var b = $('savebar'), dirty = isDirty();
+    var key = saveState + '|' + dirty + '|' + (saveState === 'error' ? saveMsg : '');
+    if (key === barKey) return;
+    barKey = key;
+    b.textContent = '';
+    b.className = 'savebar';
+    if (saveState === 'done') {
+      b.classList.add('on', 'done');
+      b.appendChild(h('span', { 'class': 'g ok' }, ''));
+      b.appendChild(h('span', { 'class': 'msg' }, 'Saved and applied'));
+      return;
+    }
+    if (!dirty) return;
+    b.classList.add('on');
+    if (saveState === 'error') b.classList.add('err');
+    b.appendChild(h('span', { 'class': 'dot' }));
+    b.appendChild(h('span', { 'class': 'msg', title: saveMsg || '' }, saveState === 'error' ? saveMsg : 'Unsaved changes'));
+    if (saveState !== 'error') b.appendChild(h('span', { 'class': 'hintkb' }, 'Ctrl+S'));
+    b.appendChild(h('button', { 'class': 'btn subtle', type: 'button', onclick: discard, disabled: saveState === 'saving' }, 'Discard'));
+    b.appendChild(h('button', { 'class': 'btn accent', type: 'button', onclick: save, disabled: saveState === 'saving' },
+      saveState === 'saving' ? 'Saving…' : 'Save'));
+  }
+  function save() {
+    if (!isDirty() || saveState === 'saving') return;
+    saveState = 'saving'; renderSaveBar();
+    api('/api/config', { method: 'PUT', body: JSON.stringify(cfg) }).then(function (norm) {
+      var k = selRing, i = selItem;
+      setCfg(typeof norm === 'string' ? JSON.parse(norm) : norm);
+      selRing = (k !== null && cfg.apps[k]) ? k : null;
+      selItem = Math.min(i, items().length - 1);
+      saveState = 'done'; renderAll();
+      setTimeout(function () { if (saveState === 'done') { saveState = 'idle'; renderSaveBar(); } }, 1600);
+    }).catch(function (e) { saveState = 'error'; saveMsg = 'Not saved: ' + e.message; renderSaveBar(); });
+  }
+  function discard() {
+    var k = selRing, i = selItem;
+    setCfg(JSON.parse(saved));
+    selRing = (k !== null && cfg.apps[k]) ? k : null;
+    selItem = Math.min(i, items().length - 1);
+    saveState = 'idle'; renderAll();
+    toast('Changes discarded');
+  }
+  function setCfg(o) {
+    cfg = o; cfg['default'] = cfg['default'] || []; cfg.apps = cfg.apps || {};
+    if (!cfg.trigger) cfg.trigger = 'Win+D';
+    if (!cfg.holdSelectMs) cfg.holdSelectMs = 300;
+    if (cfg.selectOnHover === undefined) cfg.selectOnHover = false;
+    cfg.appOptions = cfg.appOptions || {};
+    cfg.pages = cfg.pages || {}; cfg.pageNames = cfg.pageNames || {};
+    saved = JSON.stringify(cfg);
+  }
+
+  // ---------- selection ----------
+  function selectRing(k) { navFresh = true; subFresh = true; selRing = k; selSet = 0; selItem = -1; closeFlyout(); renderAll(); }
+  function selectItem(i) { navFresh = true; selItem = i; closeFlyout(); renderAll(); }
+
+  // ---------- sidebar ----------
+  var folded = {};   // rings whose item list is collapsed in the sidebar (session only)
+  function renderNav() {
+    var nav = $('nav'); nav.textContent = '';
+    var keys = [null].concat(Object.keys(cfg.apps).sort(ci));
+    keys.forEach(function (k) {
+      var list = listFor(k), open = k === selRing, fk = k === null ? '\u0000default' : k;
+      var isFolded = open && selItem < 0 && !!folded[fk];     // choosing an item always shows the list
+      var row = h('button', {
+        'class': 'nav' + (open ? ' open' : '') + (navFresh && open && selItem < 0 ? ' fresh' : ''), type: 'button',
+        'aria-current': open && selItem < 0 ? 'true' : null, 'aria-expanded': String(open && !isFolded),
+        title: (!list.length && k !== null) ? 'Empty ring: the trigger passes through in ' + k : null,
+        onclick: function () {
+          if (open && selItem < 0) { folded[fk] = !folded[fk]; renderNav(); }   // clicking the open ring folds or unfolds it
+          else { delete folded[fk]; selectRing(k); }
+        }
+      }, appIcon(k), h('span', { 'class': 'lbl' }, ringName(k)), h('span', { 'class': 'meta' }, listFor(k, 0).length ? String(totalItems(k)) : 'off'),
+        h('span', { 'class': 'g chev' + (open && !isFolded ? ' down' : ''), 'aria-hidden': 'true' }, '\uE76C'));
+      nav.appendChild(row);
+      if (!open || isFolded) return;
+      var sub = h('div', { 'class': 'sub' + (subFresh ? ' fresh' : ''), role: 'list' });
+      list.forEach(function (it, i) {
+        var r = h('button', {
+          'class': 'subrow' + (navFresh && i === selItem ? ' fresh' : ''), type: 'button', role: 'listitem', draggable: 'true',
+          'aria-current': i === selItem ? 'true' : null,
+          'aria-label': (it.label || 'Untitled') + ', ' + typeOf(it.type).name + '. Alt+Up or Alt+Down to reorder.',
+          onclick: function () { selectItem(i); },
+          onkeydown: function (e) {
+            if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) { e.preventDefault(); reorder(i, i + (e.key === 'ArrowUp' ? -1 : 1), true); }
+            else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); focusSub(i + (e.key === 'ArrowUp' ? -1 : 1)); }
+            else if (e.key === 'Delete') { e.preventDefault(); removeItem(i); }
+          },
+          ondragstart: function (e) { e.dataTransfer.setData('text/plain', String(i)); e.dataTransfer.effectAllowed = 'move'; r.classList.add('dragging'); },
+          ondragend: function () { r.classList.remove('dragging'); },
+          ondragover: function (e) { e.preventDefault(); r.classList.add('over'); },
+          ondragleave: function () { r.classList.remove('over'); },
+          ondrop: function (e) { e.preventDefault(); reorder(parseInt(e.dataTransfer.getData('text/plain'), 10), i, false); }
+        }, h('span', { 'class': 'lbl' }, it.label || 'Untitled'), h('span', { 'class': 'g', title: typeOf(it.type).name }, typeOf(it.type).g));
+        sub.appendChild(r);
+      });
+      if (list.length < MAX) sub.appendChild(h('button', { 'class': 'subrow add', type: 'button', onclick: addItem }, glyph(''), h('span', { 'class': 'lbl' }, 'Add item')));
+      nav.appendChild(sub);
+    });
+    $('settingsMeta').textContent = cfg.trigger;
+    navFresh = subFresh = false;   // entrance animations play once per selection change
+  }
+  function focusSub(i) { var r = $('nav').querySelectorAll('.subrow:not(.add)'); if (r[i]) r[i].focus(); }
+
+  // ---------- stage ----------
+  function renderStage() {
+    var list = items();
+    renderTabs();
+    $('stageTitle').textContent = selRing === null ? 'Default ring' : selRing;
+    $('stageSub').textContent = selRing === null ? 'Opens in any app that has no ring of its own' : 'Opens while ' + selRing + ' is the active window';
+    var box = $('ring'); box.textContent = '';
+    if (!list.length) {
+      box.className = 'ring empty-ring';
+      var svg = s('svg', { viewBox: '0 0 400 400', 'aria-hidden': 'true' });
+      svg.appendChild(s('circle', { cx: 200, cy: 200, r: 178, fill: 'none', stroke: 'var(--text3)', 'stroke-opacity': .5, 'stroke-width': 1.5, 'stroke-dasharray': '4 8' }));
+      var wrap = h('div', { style: 'position:relative;width:100%;height:100%' }, svg,
+        h('div', { style: 'position:absolute;inset:0;display:grid;place-items:center' },
+          h('div', { 'class': 'empty-ring' },
+            h('p', {}, selRing === null ? 'No items yet.' : 'Empty, so the trigger reaches ' + selRing + ' as a normal key press.'),
+            h('div', { style: 'margin-top:12px' }, h('button', { 'class': 'btn', type: 'button', onclick: addItem }, glyph(''), 'Add item')))));
+      box.appendChild(wrap);
+      $('stageHint').textContent = '';
+      return;
+    }
+    box.className = 'ring';
+    var C = 200, R = 182, r = 64, n = list.length, sweep = 360 / n, gap = n > 1 ? 1.6 : 0;
+    function pt(rad, deg) { var a = deg * Math.PI / 180; return (C + rad * Math.cos(a)).toFixed(2) + ' ' + (C + rad * Math.sin(a)).toFixed(2); }
+    function xy(rad, deg) { var a = deg * Math.PI / 180; return [C + rad * Math.cos(a), C + rad * Math.sin(a)]; }
+    var svg2 = s('svg', { viewBox: '0 0 400 400', role: 'img', 'aria-label': 'Ring with ' + n + ' items' });
+    var body = s('g', { 'class': 'body' });
+    list.forEach(function (it, i) {
+      var start = -90 - sweep / 2 + i * sweep, a0 = start + gap / 2, a1 = start + sweep - gap / 2, d;
+      if (n === 1) {
+        d = 'M' + (C - R) + ' ' + C + 'a' + R + ' ' + R + ' 0 1 0 ' + 2 * R + ' 0a' + R + ' ' + R + ' 0 1 0 ' + -2 * R + ' 0Z' +
+            'M' + (C - r) + ' ' + C + 'a' + r + ' ' + r + ' 0 1 1 ' + 2 * r + ' 0a' + r + ' ' + r + ' 0 1 1 ' + -2 * r + ' 0Z';
+      } else {
+        var large = (a1 - a0) > 180 ? 1 : 0;
+        d = 'M' + pt(R, a0) + 'A' + R + ' ' + R + ' 0 ' + large + ' 1 ' + pt(R, a1) + 'L' + pt(r, a1) + 'A' + r + ' ' + r + ' 0 ' + large + ' 0 ' + pt(r, a0) + 'Z';
+      }
+      var g = s('g', { 'class': 'seg' + (i === selItem ? ' sel' : '') });
+      g.appendChild(s('title', {}, (it.label || 'Untitled') + ' - ' + typeOf(it.type).name));
+      g.appendChild(s('path', { d: d, 'fill-rule': 'evenodd' }));
+      var m = xy((R + r) / 2, start + sweep / 2);
+      var small = n > 8;
+      g.appendChild(s('text', { 'class': 'sg', x: m[0], y: m[1] - (small ? 8 : 10) }, typeOf(it.type).g));
+      g.appendChild(s('text', { 'class': 'sl', x: m[0], y: m[1] + (small ? 8 : 10), style: small ? 'font-size:11px' : null }, trunc(it.label || 'Untitled', small ? 9 : 12)));
+      g.addEventListener('click', function () { selectItem(i); });
+      body.appendChild(g);
+    });
+    body.appendChild(s('circle', { cx: C, cy: C, r: r - 8, 'class': 'hub' }));
+    svg2.appendChild(body);
+    var it = cur();
+    if (it) svg2.appendChild(s('text', { 'class': 'hub-t', x: C, y: C }, trunc(it.label || 'Untitled', 12)));
+    else svg2.appendChild(s('text', { 'class': 'hub-s', x: C, y: C }, 'cancel'));
+    box.appendChild(svg2);
+    $('stageHint').textContent = it ? '' : 'Click a segment to edit it';
+  }
+
+  // Typing in the label box edits the existing text nodes. Rebuilding the sidebar and ring on every keystroke
+  // replays their entrance animations and reloads the icons, which looks like the whole editor blinking.
+  function patchLabel(it) {
+    var name = it.label || 'Untitled', small = items().length > 8;
+    var row = document.querySelector('.subrow[aria-current="true"]');
+    if (row) {
+      var l = row.querySelector('.lbl'); if (l) l.textContent = name;
+      row.setAttribute('aria-label', name + ', ' + typeOf(it.type).name + '. Alt+Up or Alt+Down to reorder.');
+    }
+    var sl = document.querySelector('.seg.sel .sl'); if (sl) sl.textContent = trunc(name, small ? 9 : 12);
+    var st = document.querySelector('.seg.sel title'); if (st) st.textContent = name + ' - ' + typeOf(it.type).name;
+    var hub = document.querySelector('.hub-t'); if (hub) hub.textContent = trunc(name, 12);
+  }
+
+  // ---------- panel ----------
+  function renderPanel() {
+    var p = $('panel'); p.textContent = '';
+    p.appendChild(cur() ? itemView(cur()) : ringView());
+  }
+
+  function ringView() {
+    var k = selRing, list = items();
+    var v = h('div', { 'class': 'pv' });
+    v.appendChild(h('div', { 'class': 'pv-head' }, appIcon(k, true),
+      h('div', { style: 'min-width:0' }, h('h2', {}, k === null ? 'Default ring' : k),
+        h('p', {}, k === null ? 'Fallback for every app' : 'App ring'))));
+    v.appendChild(h('p', { 'class': 'prose' }, k === null
+      ? 'Shown when the active window has no ring of its own. Add a ring for an app to give it different actions.'
+      : list.length ? 'Shown instead of the default ring while ' + k + ' is the active window.'
+                    : 'This ring is empty, so pressing the trigger in ' + k + ' does what it normally does.'));
+    v.appendChild(h('div', { 'class': 'stat' }, h('span', { 'class': 'muted' }, 'Items'), h('span', {}, h('b', {}, String(list.length)), h('span', { 'class': 'muted' }, ' / ' + MAX))));
+    var acts = h('div', { 'class': 'row-actions' },
+      h('button', { 'class': 'btn accent', type: 'button', onclick: addItem, disabled: list.length >= MAX }, glyph(''), 'Add item'));
+    if (k !== null && !list.length && cfg['default'].length)
+      acts.appendChild(h('button', { 'class': 'btn', type: 'button', onclick: function () { cfg.apps[k] = JSON.parse(JSON.stringify(cfg['default'])); renderAll(); touch(); } }, 'Copy default items'));
+    v.appendChild(acts);
+    if (k === null) {   // the default ring carries the global setting
+      var gtog = h('input', { 'class': 'switch', type: 'checkbox', role: 'switch', id: 'f-ghov', checked: !!cfg.selectOnHover });
+      gtog.addEventListener('change', function () { cfg.selectOnHover = gtog.checked; touch(); });
+      v.appendChild(h('div', { 'class': 'field', style: 'margin-top:16px' }, h('div', { 'class': 'wait' }, gtog, h('label', { 'for': 'f-ghov' }, 'Execute on hover'))));
+    }
+    if (k !== null) {
+      var ov = cfg.appOptions[k] && cfg.appOptions[k].selectOnHover;
+      var tog = h('input', { 'class': 'switch', type: 'checkbox', role: 'switch', id: 'f-hov', checked: ov !== undefined ? !!ov : !!cfg.selectOnHover });
+      tog.addEventListener('change', function () {
+        if (tog.checked === !!cfg.selectOnHover) delete cfg.appOptions[k];     // same as the global setting: nothing to store
+        else cfg.appOptions[k] = { selectOnHover: tog.checked };
+        touch();
+      });
+      v.appendChild(h('div', { 'class': 'field', style: 'margin-top:16px' }, h('div', { 'class': 'wait' }, tog, h('label', { 'for': 'f-hov' }, 'Execute on hover'))));
+      v.appendChild(h('div', { 'class': 'danger-zone' },
+        h('button', { 'class': 'btn subtle danger', type: 'button', onclick: function () {
+          confirm('Remove the ' + k + ' ring?', k + ' will use the default ring again. You can undo this until you save.', 'Remove', function () {
+            delete cfg.apps[k]; delete cfg.appOptions[k]; delete cfg.pages[k]; delete cfg.pageNames[k]; selRing = null; selItem = -1; renderAll(); touch();
+          });
+        } }, glyph(''), 'Remove ring')));
+    }
+    return v;
+  }
+
+  function itemView(it) {
+    var list = items();
+    var v = h('div', { 'class': 'pv' });
+    var more = iconBtn('', 'More actions', function () { openMenu(more, [
+      { g: '', label: 'Duplicate', disabled: list.length >= MAX, run: function () { duplicate(selItem); } },
+      { g: '', label: 'Move earlier', kb: 'Alt+↑', disabled: selItem === 0, run: function () { reorder(selItem, selItem - 1, false); } },
+      { g: '', label: 'Move later', kb: 'Alt+↓', disabled: selItem === list.length - 1, run: function () { reorder(selItem, selItem + 1, false); } },
+      '-',
+      { g: '', label: 'Delete', kb: 'Del', danger: true, run: function () { removeItem(selItem); } }
+    ]); });
+    v.appendChild(h('div', { 'class': 'pv-top' },
+      h('button', { 'class': 'back', type: 'button', onclick: function () { selectRing(selRing); } }, glyph(''), h('span', {}, ringName(selRing))),
+      h('span', { 'class': 'pv-count' }, (selItem + 1) + ' of ' + list.length), more));
+
+    var label = h('input', { 'class': 'input', id: 'f-label', value: it.label || '', autocomplete: 'off', placeholder: 'Shown on the ring', maxlength: 40 });
+    label.addEventListener('input', function () { it.label = label.value; patchLabel(it); touch(); });
+    v.appendChild(field('Label', label, 'f-label'));
+
+    var seg = h('div', { 'class': 'seg-ctl' + (TYPES.length > 5 ? ' wrap' : ''), role: 'radiogroup', 'aria-label': 'Action' });
+    TYPES.forEach(function (t) {
+      var inp = h('input', { type: 'radio', name: 'type', value: t.id });
+      inp.checked = it.type === t.id;
+      inp.addEventListener('change', function () {
+        it.type = t.id;
+        if (t.id === 'sequence' && !it.steps) it.steps = [];
+        renderNav(); renderStage(); renderPanel(); touch();
+        var again = document.querySelector('.seg-ctl input[value="' + t.id + '"]'); if (again) again.focus();
+      });
+      seg.appendChild(h('label', {}, inp, h('span', {}, t.name)));
+    });
+    v.appendChild(h('div', { 'class': 'field' }, h('span', { 'class': 'lbl' }, 'Action'), seg));
+
+    if (it.type === 'shortcut') {
+      v.appendChild(h('div', { 'class': 'field' }, h('span', { 'class': 'lbl' }, 'Keys'),
+        keyField(it.keys, function (val) { it.keys = val; touch(); }, 'Keys'),
+        h('span', { 'class': 'help' }, 'Sent to the window that was active when you opened the ring.')));
+    } else if (it.type === 'sequence') {
+      v.appendChild(stepsEditor(it));
+    } else if (it.type === 'preset') {
+      v.appendChild(h('p', { 'class': 'prose' }, setCount(selRing) > 1
+        ? 'Choosing this tile flips the ring to its next set, then back to the first after the last. The ring stays open.'
+        : 'This ring has only one set. Add another set from the ring page, then this tile will cycle between them.'));
+    } else {
+      var ph = { launch: 'notepad.exe', url: 'https://', command: 'ipconfig /flushdns' }[it.type];
+      var tl = { launch: 'Program or file', url: 'Address', command: 'Command line' }[it.type];
+      var tgt = h('input', { 'class': 'input mono', id: 'f-target', value: it.target || '', placeholder: ph, autocomplete: 'off', spellcheck: 'false' });
+      tgt.addEventListener('input', function () { it.target = tgt.value; touch(); });
+      var tgtCtl = tgt;
+      if (it.type === 'launch') {
+        var br = h('button', { 'class': 'btn', type: 'button' }, glyph('\uE8E5'), 'Browse');
+        br.addEventListener('click', function () {
+          br.disabled = true;
+          pickFile('target').then(function (r) {
+            if (r.cancelled) return;
+            it.target = r.path; tgt.value = r.path; touch(); tgt.focus();
+          }).catch(function (e) { toast('Could not open the file picker: ' + e.message, { ms: 5000 }); })
+            .then(function () { br.disabled = false; });
+        });
+        tgtCtl = h('div', { 'class': 'with-btn' }, tgt, br);
+      }
+      v.appendChild(field(tl, tgtCtl, 'f-target', it.type === 'launch' ? 'A full path, or a program on your PATH.' : it.type === 'command' ? 'Runs hidden through cmd /c.' : null));
+      if (it.type === 'launch') {
+        var args = h('input', { 'class': 'input mono', id: 'f-args', value: it.args || '', placeholder: 'Optional', autocomplete: 'off', spellcheck: 'false' });
+        args.addEventListener('input', function () { it.args = args.value; touch(); });
+        v.appendChild(field('Arguments', args, 'f-args'));
+      }
+    }
+
+    var test = h('button', { 'class': 'btn', type: 'button' }, glyph(''), 'Test');
+    test.addEventListener('click', function () { runTest(it, test); });
+    v.appendChild(h('div', { 'class': 'pv-foot' }, test, h('span', { 'class': 'help' }, 'Runs after 3 seconds, so you can switch to the window it should act on.')));
+    return v;
+  }
+
+  function field(label, control, id, help) {
+    return h('div', { 'class': 'field' }, h('label', { 'class': 'lbl', 'for': id }, label), control, help ? h('span', { 'class': 'help' }, help) : null);
+  }
+
+  // A shortcut field: shows keycaps; click records through the app's keyboard hook; pencil switches to typing.
+  function keyField(value, onChange, label, onHold, onDevice) {
+    var wrap = h('div', {}), typing = false;
+    function draw() {
+      wrap.textContent = '';
+      if (typing) {
+        var inp = h('input', { 'class': 'input mono', value: value || '', placeholder: 'Ctrl+Shift+T', 'aria-label': label, autocomplete: 'off', spellcheck: 'false' });
+        inp.addEventListener('input', function () { value = inp.value; onChange(value); });
+        inp.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); inp.blur(); } });
+        inp.addEventListener('blur', function () { typing = false; draw(); });
+        wrap.appendChild(inp);
+        setTimeout(function () { inp.focus(); inp.select(); }, 0);
+        return;
+      }
+      var rec = recording === wrap;
+      var f = h('div', { 'class': 'keyfield' + (rec ? ' rec' : ''), role: 'button', tabindex: '0',
+        'aria-label': rec ? 'Recording. Press a shortcut, or Escape to cancel.' : label + ': ' + (value || 'not set') + '. Press Enter to record.' });
+      if (rec) f.appendChild(h('span', { 'class': 'live' }, h('span', { 'class': 'pulse' }), 'Press a shortcut', h('span', { 'class': 'muted', style: 'margin-left:auto;margin-right:8px;font-size:12px' }, 'Esc cancels')));
+      else if (value) { f.appendChild(caps(value)); f.appendChild(h('span', { 'class': 'grow' })); }
+      else f.appendChild(h('span', { 'class': 'ph' }, 'Click to record'));
+      if (!rec) f.appendChild(iconBtn('', 'Type it instead', function (e) { e.stopPropagation(); typing = true; draw(); }, true));
+      f.addEventListener('click', start);
+      f.addEventListener('keydown', function (e) { if (e.target === f && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); start(); } });
+      wrap.appendChild(f);
+    }
+    function start() {
+      if (recording) { if (recording === wrap) api('/api/record/cancel', { method: 'POST' }).catch(function () {}); return; }
+      recording = wrap; draw();
+      api('/api/record' + (onHold ? '?mod=1' : ''), { method: 'POST' }).then(function (r) {   // macro steps may be a lone Ctrl/Alt/Shift/Win
+        if (r.keys) { value = r.keys; onChange(value); if (onHold) onHold(r.hold || 0); if (onDevice) onDevice(r.device || ''); }
+      }).catch(function (e) { toast(e.message); }).then(function () {
+        recording = null;
+        if (wrap.isConnected) { draw(); var kf = wrap.querySelector('.keyfield'); if (kf) kf.focus(); }
+        else renderPanel();
+      });
+    }
+    draw();
+    return wrap;
+  }
+
+  // Records a whole sequence from the keyboard hook: keys, how long each was held, and the real gap before the next.
+  var seqRec = null;   // { it, count } while recording
+  function startSeq(it) {
+    api('/api/record/seq/start', { method: 'POST' }).then(function () {
+      seqRec = { it: it, count: 0 }; renderPanel(); pollSeq();
+    }).catch(function (e) { toast('Could not start recording: ' + e.message, { ms: 5000 }); });
+  }
+  function pollSeq() {
+    if (!seqRec) return;
+    api('/api/record/seq/status').then(function (r) {
+      if (!seqRec) return;
+      seqRec.count = r.count;
+      var l = $('seqLbl'); if (l) l.textContent = r.count ? r.count + (r.count === 1 ? ' step recorded' : ' steps recorded') : 'Press your keys now';
+      if (!r.active) finishSeq(); else setTimeout(pollSeq, 300);
+    }).catch(function () { seqRec = null; renderPanel(); });
+  }
+  function finishSeq() {
+    var cur = seqRec; if (!cur) return; seqRec = null;
+    api('/api/record/seq/stop', { method: 'POST' }).then(function (r) {
+      var st = (r && r.steps) || [];
+      st.forEach(function (s) { var o = { keys: s.keys, hold: s.hold || 0 }; if (s.after) o.after = s.after; cur.it.steps = cur.it.steps || []; cur.it.steps.push(o); });
+      renderPanel(); if (st.length) touch();
+      toast(st.length ? st.length + (st.length === 1 ? ' step added' : ' steps added') + ' with your timing' : 'Nothing recorded');
+    }).catch(function (e) { renderPanel(); toast('Recording failed: ' + e.message, { ms: 5000 }); });
+  }
+
+  function stepsEditor(it) {
+    it.steps = it.steps || [];
+    var wrap = h('div', { 'class': 'field' }, h('span', { 'class': 'lbl' }, 'Steps'));
+    if (it.steps.length) {
+      var box = h('div', { 'class': 'steps' });
+      it.steps.forEach(function (st, i) {
+        var kind = st.keys !== undefined ? 'keys' : st.delay !== undefined ? 'delay' : 'text';
+        var bodyEl;
+        function acts() {
+          return h('div', { 'class': 'step-acts' },
+            iconBtn('\uE74A', 'Move step up', function () { swapStep(it, i, -1); }, true),
+            iconBtn('\uE74B', 'Move step down', function () { swapStep(it, i, 1); }, true),
+            iconBtn('\uE711', 'Remove step', function () { it.steps.splice(i, 1); renderPanel(); touch(); }, true));
+        }
+        // "Hold 0 ms" style field: label, compact number input, unit
+        function numGroup(label, value, max, aria, title, onSet) {
+          var inp = h('input', { 'class': 'input', type: 'number', min: 0, max: max, step: 50, value: value || 0, 'aria-label': 'Step ' + (i + 1) + ' ' + aria, title: title + ' (milliseconds)' });
+          inp.addEventListener('input', function () { var v = Math.max(0, Math.min(max, parseInt(inp.value, 10) || 0)); if (inp.value !== '' && String(v) !== inp.value) inp.value = v; onSet(v); touch(); });
+          return { el: h('span', { 'class': 'wait-g' }, h('span', { 'class': 'muted' }, label), inp), input: inp };
+        }
+        function afterGroup() {
+          return numGroup('Then wait', st.after, 60000, 'pause after this step, in milliseconds', '0 = the short default pause',
+            function (v) { if (v) st.after = v; else delete st.after; }).el;
+        }
+        if (kind === 'keys') {
+          var hg = numGroup('Hold', st.hold, 10000, 'hold time in milliseconds', '0 = quick tap', function (v) { st.hold = v; });
+          var kf = keyField(st.keys, function (val) { st.keys = val; touch(); }, 'Step ' + (i + 1) + ' keys',
+            function (ms) { st.hold = ms; hg.input.value = ms; touch(); });
+          kf.style.flex = '1'; kf.style.minWidth = '0';
+          bodyEl = h('div', { 'class': 'keyrow' }, kf, h('div', { 'class': 'wait row2' }, hg.el, afterGroup(), acts()));
+        }
+        else if (kind === 'text') {
+          var ti = h('input', { 'class': 'input', value: st.text || '', placeholder: 'Text to type', 'aria-label': 'Step ' + (i + 1) + ' text', autocomplete: 'off' });
+          ti.addEventListener('input', function () { st.text = ti.value; touch(); });
+          bodyEl = h('div', { 'class': 'keyrow' }, ti, h('div', { 'class': 'wait row2' }, afterGroup(), acts()));
+        } else {
+          var n = h('input', { 'class': 'input', type: 'number', min: 0, max: 60000, step: 50, value: st.delay, 'aria-label': 'Step ' + (i + 1) + ' wait in milliseconds' });
+          n.addEventListener('input', function () { var v = Math.max(0, Math.min(60000, parseInt(n.value, 10) || 0)); if (n.value !== '' && String(v) !== n.value) n.value = v; st.delay = v; touch(); });
+          bodyEl = h('div', { 'class': 'wait' }, h('span', { 'class': 'muted' }, 'Wait'), n, h('span', { 'class': 'muted' }, 'ms'), acts());
+        }
+        box.appendChild(h('div', { 'class': 'step inl' },
+          h('span', { 'class': 'node', title: { keys: 'Press keys', text: 'Type text', delay: 'Wait' }[kind] }, glyph(STEP_G[kind])),
+          h('div', { style: 'min-width:0' }, bodyEl)));
+      });
+      wrap.appendChild(box);
+    } else {
+      wrap.appendChild(h('span', { 'class': 'help' }, 'A macro runs its steps top to bottom. For example: press Ctrl+A, wait 100 ms, type your text, press Enter.'));
+    }
+    function addStep(st) {
+      it.steps.push(st); renderPanel(); touch();
+      var rows = document.querySelectorAll('.step'); var last = rows[rows.length - 1];
+      var focusable = last && last.querySelector('input, .keyfield'); if (focusable) focusable.focus();
+    }
+    if (seqRec && seqRec.it === it) {
+      wrap.appendChild(h('div', { 'class': 'seqbar', role: 'status' }, h('span', { 'class': 'rec-dot' }),
+        h('span', { id: 'seqLbl' }, 'Press your keys now'), h('span', { 'class': 'grow' }),
+        h('span', { 'class': 'muted' }, 'Esc finishes'),
+        h('button', { 'class': 'btn', type: 'button', onclick: finishSeq }, 'Stop')));
+      return wrap;
+    }
+    wrap.appendChild(h('div', { 'class': 'add-steps', style: it.steps.length ? null : 'margin-left:0;margin-top:4px' },
+      h('button', { 'class': 'btn subtle', type: 'button', title: 'Record keystrokes with their real timing', onclick: function () { startSeq(it); } }, glyph('\uE7C8'), 'Record'),
+      h('button', { 'class': 'btn subtle', type: 'button', onclick: function () { addStep({ keys: '' }); } }, glyph(''), 'Keys'),
+      h('button', { 'class': 'btn subtle', type: 'button', onclick: function () { addStep({ text: '' }); } }, glyph(''), 'Text'),
+      h('button', { 'class': 'btn subtle', type: 'button', onclick: function () { addStep({ delay: 200 }); } }, glyph(''), 'Wait')));
+    return wrap;
+  }
+  function swapStep(it, i, d) {
+    var j = i + d; if (j < 0 || j >= it.steps.length) return;
+    var t = it.steps[i]; it.steps[i] = it.steps[j]; it.steps[j] = t; renderPanel(); touch();
+  }
+
+  // ---------- item commands ----------
+  function addItem() {
+    var l = items(); if (l.length >= MAX) return;
+    l.push({ label: 'New item', type: 'shortcut', keys: '' });
+    navFresh = true; selItem = l.length - 1; renderAll(); touch();
+    var f = $('f-label'); if (f) { f.focus(); f.select(); }
+  }
+  function duplicate(i) {
+    var l = items(); if (l.length >= MAX || !l[i]) return;
+    var c = JSON.parse(JSON.stringify(l[i])); c.label = trunc((c.label || 'Item') + ' copy', 40);
+    l.splice(i + 1, 0, c); selItem = i + 1; renderAll(); touch();
+  }
+  function removeItem(i) {
+    var l = items(), it = l[i]; if (!it) return;
+    var ringKey = selRing;
+    l.splice(i, 1);
+    selItem = -1; renderAll(); touch();
+    toast('Deleted “' + (it.label || 'Untitled') + '”', { ms: 5000, action: { label: 'Undo', run: function () {
+      var list = listFor(ringKey); if (ringKey !== null && !cfg.apps[ringKey]) return;
+      list.splice(Math.min(i, list.length), 0, it); selRing = ringKey; selItem = i; renderAll(); touch();
+    } } });
+  }
+  function reorder(from, to, keepFocus) {
+    var l = items();
+    if (isNaN(from) || from < 0 || to < 0 || from >= l.length || to >= l.length || from === to) return;
+    var it = l.splice(from, 1)[0]; l.splice(to, 0, it);
+    selItem = to; renderAll(); touch();
+    if (keepFocus) focusSub(to);
+  }
+  function runTest(it, btn) {
+    var n = 3; btn.disabled = true;
+    function tick() {
+      if (n > 0) { btn.lastChild.textContent = 'Switch windows… ' + n; n--; setTimeout(tick, 1000); return; }
+      btn.lastChild.textContent = 'Running';
+      api('/api/test', { method: 'POST', body: JSON.stringify(it) })
+        .then(function () { btn.lastChild.textContent = 'Done'; })
+        .catch(function (e) { btn.lastChild.textContent = 'Test'; toast('Could not run: ' + e.message, { ms: 5000 }); })
+        .then(function () { setTimeout(function () { btn.disabled = false; btn.lastChild.textContent = 'Test'; }, 1400); });
+    }
+    tick();
+  }
+
+  // ---------- rings ----------
+  var procs = [];
+  function openAppDialog() {
+    closeFlyout();
+    $('appSearch').value = '';
+    renderPicker();
+    api('/api/processes').then(function (names) { procs = names || []; renderPicker(); }).catch(function () {});
+    $('appDialog').showModal();
+    $('appSearch').focus();
+  }
+  function renderPicker() {
+    var q = $('appSearch').value.trim(), ql = q.toLowerCase(), box = $('picker');
+    box.textContent = '';
+    var have = {}; Object.keys(cfg.apps).forEach(function (k) { have[k.toLowerCase()] = true; });
+    var shown = procs.filter(function (p) { return !ql || p.toLowerCase().indexOf(ql) >= 0; });
+    var exact = shown.some(function (p) { return p.toLowerCase() === ql; });
+    if (q && !exact) box.appendChild(h('button', { 'class': 'pick', type: 'button', role: 'option', onclick: function () { pickApp(q); } },
+      h('span', { 'class': 'appicon ini', 'aria-hidden': 'true' }, '+'), h('span', { 'class': 'lbl' }, 'Add “' + q.replace(/\.exe$/i, '') + '”')));
+    shown.forEach(function (p) {
+      box.appendChild(h('button', { 'class': 'pick', type: 'button', role: 'option', onclick: function () { pickApp(p); } },
+        appIconPlain(p), h('span', { 'class': 'lbl' }, p), have[p.toLowerCase()] ? h('span', { 'class': 'tag' }, 'Has a ring') : null));
+    });
+    if (!box.children.length) box.appendChild(h('div', { 'class': 'pick-empty' }, procs.length ? 'No running app matches.' : 'Loading running apps…'));
+  }
+  function appIconPlain(name) {   // icons in the picker aren't kept on disk
+    if (badIcons[name.toLowerCase()]) return h('span', { 'class': 'appicon ini', 'aria-hidden': 'true' }, name.charAt(0).toUpperCase());
+    var img = h('img', { 'class': 'appicon', alt: '', loading: 'lazy', src: '/api/icon?name=' + encodeURIComponent(name) + '&t=' + TOKEN });
+    img.addEventListener('error', function () { badIcons[name.toLowerCase()] = true; if (img.parentNode) img.parentNode.replaceChild(h('span', { 'class': 'appicon ini' }, name.charAt(0).toUpperCase()), img); });
+    return img;
+  }
+  function pickApp(name) { $('appDialog').close(); addRing(name); }
+
+  // The browser hides file paths from pages, so RingAction opens the Windows file picker itself.
+  function pickFile(purpose) {
+    toast('Choose a file in the window that just opened', { ms: 8000 });
+    return api('/api/pick?purpose=' + purpose, { method: 'POST' }).then(function (r) { hideToast(); return r; });
+  }
+  function browseApp() {
+    var btn = $('browseBtn'); btn.disabled = true;
+    pickFile('app').then(function (r) {
+      if (r.cancelled) return;
+      $('appDialog').close();
+      delete badIcons[r.name.toLowerCase()];
+      addRing(r.name);
+      if (r.launcher) toast(r.name + ' looks like a launcher. The running app may use a different name, so if the ring never opens, remove it and use Detect active app.', { ms: 8000 });
+    }).catch(function (e) { toast('Could not open the file picker: ' + e.message, { ms: 5000 }); })
+      .then(function () { btn.disabled = false; });
+  }
+  function addRing(name) {
+    name = (name || '').trim().replace(/\.exe$/i, '');
+    if (!name) return;
+    var existing = Object.keys(cfg.apps).filter(function (k) { return k.toLowerCase() === name.toLowerCase(); })[0];
+    if (existing) { selRing = existing; selItem = -1; renderAll(); toast(existing + ' already has a ring'); return; }
+    cfg.apps[name] = JSON.parse(JSON.stringify(cfg['default']));
+    selRing = name; selItem = -1; renderAll(); touch();
+    toast('Added ' + name + ', starting from a copy of the default ring');
+  }
+  function detect() {
+    $('appDialog').close();
+    var n = 3;
+    (function tick() {
+      if (n > 0) { toast('Switch to the app you want… ' + n, { ms: 1200 }); n--; setTimeout(tick, 1000); return; }
+      api('/api/foreground').then(function (r) {
+        if (!r.name) { toast('Could not read the active app'); return; }
+        if (/^(msedge|chrome|RingAction)$/i.test(r.name)) { toast('That was this editor. Try again and click the app within 3 seconds.', { ms: 4500 }); return; }
+        addRing(r.name);
+      }).catch(function (e) { toast(e.message); });
+    })();
+  }
+
+  // ---------- flyouts ----------
+  var fly = null;
+  function closeFlyout(restoreFocus) {
+    if (!fly) return;
+    var f = fly; fly = null;
+    f.el.classList.remove('on');
+    setTimeout(function () { if (f.el.parentNode) f.el.parentNode.removeChild(f.el); }, 160);
+    if (restoreFocus && f.anchor) f.anchor.focus();
+  }
+  function placeFlyout(el, anchor, above) {
+    document.body.appendChild(el);
+    var r = anchor.getBoundingClientRect(), w = el.offsetWidth, hgt = el.offsetHeight;
+    var left = above ? r.left : r.right - w;
+    left = Math.max(8, Math.min(left, innerWidth - w - 8));
+    var top = above ? r.top - hgt - 6 : r.bottom + 4;
+    if (!above && top + hgt > innerHeight - 8) top = Math.max(8, r.top - hgt - 4);
+    el.style.left = left + 'px'; el.style.top = Math.max(8, top) + 'px';
+    if (above) el.classList.add('up');
+    requestAnimationFrame(function () { el.classList.add('on'); });
+  }
+  function openMenu(anchor, entries) {
+    if (fly && fly.anchor === anchor) { closeFlyout(true); return; }
+    closeFlyout();
+    var m = h('div', { 'class': 'flyout menu', role: 'menu' });
+    entries.forEach(function (e) {
+      if (e === '-') { m.appendChild(h('div', { 'class': 'msep', role: 'separator' })); return; }
+      m.appendChild(h('button', { 'class': 'mi' + (e.danger ? ' danger' : ''), type: 'button', role: 'menuitem', disabled: !!e.disabled,
+        onclick: function () { closeFlyout(); e.run(); } }, glyph(e.g), e.label, e.kb ? h('span', { 'class': 'kb' }, e.kb) : null));
+    });
+    m.addEventListener('keydown', function (ev) {
+      var btns = Array.prototype.filter.call(m.querySelectorAll('.mi'), function (b) { return !b.disabled; });
+      var idx = btns.indexOf(document.activeElement);
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); (btns[idx + 1] || btns[0]).focus(); }
+      if (ev.key === 'ArrowUp') { ev.preventDefault(); (btns[idx - 1] || btns[btns.length - 1]).focus(); }
+    });
+    placeFlyout(m, anchor, false);
+    fly = { el: m, anchor: anchor };
+    var first = m.querySelector('.mi:not(:disabled)'); if (first) first.focus();
+  }
+  function openSettings() {
+    var anchor = $('settingsBtn');
+    if (fly && fly.anchor === anchor) { closeFlyout(true); return; }
+    closeFlyout();
+    var hold = h('input', { 'class': 'input', type: 'number', id: 'f-hold', min: 100, max: 5000, step: 50, value: cfg.holdSelectMs, style: 'width:104px' });
+    hold.addEventListener('input', function () { cfg.holdSelectMs = parseInt(hold.value, 10) || 300; touch(); });
+    var soh = h('input', { 'class': 'switch', type: 'checkbox', role: 'switch', id: 'f-soh', checked: !!cfg.selectOnHover });
+    soh.addEventListener('change', function () { cfg.selectOnHover = soh.checked; touch(); });
+    var devTxt = h('span', { 'class': 'help' }); var devClear = h('button', { 'class': 'btn subtle', type: 'button', style: 'justify-self:start' }, 'Use Any Keyboard');
+    function showDev() {
+      var d = cfg.triggerDevice;
+      devTxt.textContent = d ? 'Only ' + d + ' opens the ring. The keyboard\u2019s own ' + cfg.trigger + ' does not.' : 'Any keyboard or button that sends ' + cfg.trigger + ' opens the ring.';
+      devClear.hidden = !d;
+    }
+    devClear.addEventListener('click', function () { delete cfg.triggerDevice; showDev(); touch(); });
+    showDev();
+    var pop = h('div', { 'class': 'flyout pop', role: 'dialog', 'aria-label': 'Settings' },
+      h('h2', {}, 'Settings'),
+      h('div', { 'class': 'field' }, h('span', { 'class': 'lbl' }, 'Trigger'),
+        keyField(cfg.trigger, function (v) { cfg.trigger = v; $('settingsMeta').textContent = v; touch(); }, 'Trigger', null,
+          function (dev) { if (dev) cfg.triggerDevice = dev; else delete cfg.triggerDevice; showDev(); touch(); }),
+        h('span', { 'class': 'help' }, 'The shortcut that opens the ring. Record it by pressing your mouse button.'),
+        devTxt, devClear),
+      h('div', { 'class': 'field' }, h('label', { 'class': 'lbl', 'for': 'f-hold' }, 'Hold to select'),
+        h('div', { 'class': 'wait' }, hold, h('span', { 'class': 'muted' }, 'ms')),
+        h('span', { 'class': 'help' }, 'Hold the trigger longer than this and releasing it picks the hovered item. A quick tap keeps the ring open for a click.')),
+      h('div', { 'class': 'field' }, h('div', { 'class': 'wait' }, soh, h('label', { 'for': 'f-soh' }, 'Execute on hover'))),
+      h('div', { 'class': 'field' }, h('span', { 'class': 'lbl' }, 'Backup'),
+        h('div', { 'class': 'wait' },
+          h('button', { 'class': 'btn', type: 'button', onclick: exportConfig }, 'Export'),
+          h('button', { 'class': 'btn', type: 'button', onclick: importConfig }, 'Import')),
+        h('span', { 'class': 'help' }, 'Export saves every ring, set and setting as one file. Import can add its rings to yours or replace everything.')));
+    placeFlyout(pop, anchor, true);
+    fly = { el: pop, anchor: anchor };
+  }
+  document.addEventListener('mousedown', function (e) {
+    if (fly && !fly.el.contains(e.target) && !fly.anchor.contains(e.target)) closeFlyout();
+  });
+
+  // ---------- export / import (whole config) ----------
+  function allLists(c) {
+    var out = [c['default'] || []];
+    Object.keys(c.apps || {}).forEach(function (k) { out.push(c.apps[k] || []); });
+    Object.keys(c.pages || {}).forEach(function (k) { (c.pages[k] || []).forEach(function (p) { out.push(p.items || []); }); });
+    return out;
+  }
+  function exportConfig() {
+    closeFlyout();
+    api('/api/config?check=1', { method: 'PUT', body: JSON.stringify(cfg) }).then(function (norm) {
+      var text = typeof norm === 'string' ? norm : JSON.stringify(norm, null, 2);
+      var d = new Date(), p = function (n) { return (n < 10 ? '0' : '') + n; };
+      var a = h('a', { href: URL.createObjectURL(new Blob([text], { type: 'application/json' })),
+        download: 'ring-action-config-' + d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + '.json' });
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+      toast(isDirty() ? 'Exported, including your unsaved changes' : 'Config exported');
+    }).catch(function (e) { toast('Could not export: ' + e.message, { ms: 5000 }); });
+  }
+  function importConfig() {
+    closeFlyout();
+    var fi = h('input', { type: 'file', accept: 'application/json,.json', style: 'display:none' });
+    fi.addEventListener('change', function () {
+      var f = fi.files && fi.files[0]; fi.remove(); if (!f) return;
+      f.text().then(function (txt) {
+        return api('/api/config?check=1', { method: 'PUT', body: txt });
+      }).then(function (norm) {
+        askImport(typeof norm === 'string' ? JSON.parse(norm) : norm);
+      }).catch(function (e) { toast('Not imported: ' + e.message, { ms: 6000 }); });
+    });
+    document.body.appendChild(fi); fi.click();
+  }
+  function askImport(inc) {
+    var d = $('importDlg'), lists = allLists(inc), tiles = 0, risky = 0;
+    lists.forEach(function (l) { l.forEach(function (it) { tiles++; if (it.type === 'command' || it.type === 'launch') risky++; }); });
+    var rings = 1 + Object.keys(inc.apps || {}).length;
+    $('importText').textContent = 'This file has ' + rings + (rings === 1 ? ' ring' : ' rings') + ' and ' + tiles + (tiles === 1 ? ' tile' : ' tiles') +
+      '. Add keeps what you have and appends these; Replace swaps everything, including the trigger and settings. Nothing changes until you save.';
+    var w = $('importWarn'); w.hidden = !risky;
+    w.textContent = risky ? risky + (risky === 1 ? ' tile launches' : ' tiles launch') + ' programs or run commands. Check them before saving.' : '';
+    $('importCancel').onclick = function () { d.close(); };
+    $('importReplace').onclick = function () { d.close(); applyImport(inc, true); };
+    $('importAdd').onclick = function () { d.close(); applyImport(inc, false); };
+    d.showModal(); $('importCancel').focus();
+  }
+  function applyImport(inc, replace) {
+    var keep = saved, note;
+    if (replace) {
+      setCfg(inc); note = 'Replaced with the imported config';
+    } else {
+      var skipped = 0, added = 0;
+      function addInto(dst, src) { src.forEach(function (it) { if (dst.length < MAX) { dst.push(it); added++; } else skipped++; }); }
+      function findApp(k) { return Object.keys(cfg.apps).filter(function (x) { return x.toLowerCase() === k.toLowerCase(); })[0]; }
+      addInto(cfg['default'], inc['default'] || []);
+      Object.keys(inc.apps || {}).forEach(function (k) {
+        var have = findApp(k);
+        if (have === undefined) { cfg.apps[k] = []; have = k; if (inc.appOptions && inc.appOptions[k]) cfg.appOptions[k] = inc.appOptions[k]; }
+        addInto(cfg.apps[have], inc.apps[k] || []);
+      });
+      Object.keys(inc.pages || {}).forEach(function (k) {
+        var key = k === '(default)' ? k : (findApp(k) || k);
+        cfg.pages[key] = cfg.pages[key] || [];
+        (inc.pages[k] || []).forEach(function (p) {
+          if (cfg.pages[key].length >= 3) { skipped += (p.items || []).length; return; }
+          cfg.pages[key].push({ name: p.name, items: (p.items || []).slice(0, MAX) }); added += Math.min(MAX, (p.items || []).length);
+        });
+        if (!cfg.pages[key].length) delete cfg.pages[key];
+      });
+      Object.keys(inc.pageNames || {}).forEach(function (k) { if (!cfg.pageNames[k]) cfg.pageNames[k] = inc.pageNames[k]; });
+      note = 'Added ' + added + (added === 1 ? ' tile' : ' tiles') + (skipped ? '; ' + skipped + ' skipped (a ring or set holds ' + MAX + ' tiles, up to 4 sets)' : '');
+    }
+    saved = keep; selRing = null; selSet = 0; selItem = -1; saveState = 'idle';
+    renderAll(); toast(note + '. Review, then Save.', { ms: 5000 });
+  }
+
+  function confirm(title, text, yesLabel, yes) {
+    var d = $('confirmDlg');
+    $('confirmTitle').textContent = title; $('confirmText').textContent = text; $('confirmYes').textContent = yesLabel;
+    $('confirmYes').onclick = function () { d.close(); yes(); };
+    $('confirmNo').onclick = function () { d.close(); };
+    d.showModal(); $('confirmNo').focus();
+  }
+
+  // ---------- boot ----------
+  function renderAll() { if (selSet >= setCount(selRing)) selSet = 0; renderNav(); renderStage(); renderPanel(); renderSaveBar(); }
+  $('addRing').addEventListener('click', openAppDialog);
+  $('settingsBtn').addEventListener('click', openSettings);
+  $('appSearch').addEventListener('input', renderPicker);
+  $('appForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = $('picker').querySelector('.pick'); if (first) first.click();
+  });
+  $('appCancel').addEventListener('click', function () { $('appDialog').close(); });
+  $('detectBtn').addEventListener('click', detect);
+  $('browseBtn').addEventListener('click', browseApp);
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+    else if (e.key === 'Escape' && fly) { e.preventDefault(); closeFlyout(true); }
+  });
+  window.addEventListener('beforeunload', function (e) { if (isDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
+  api('/api/config').then(function (data) {
+    setCfg(typeof data === 'string' ? JSON.parse(data) : data);
+    renderAll();
+  }).catch(function (e) {
+    document.body.innerHTML = '';
+    document.body.style.display = 'grid';
+    document.body.style.placeItems = 'center';
+    document.body.appendChild(h('p', { 'class': 'muted', style: 'max-width:360px;text-align:center' },
+      'Cannot reach RingAction (' + e.message + '). Open the editor from the tray icon.'));
+  });
+})();
+</script>
+</body>
+</html>

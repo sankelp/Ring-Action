@@ -1,0 +1,100 @@
+{
+  "trigger": "Win+D",
+  "default": [],
+  "apps": {
+    "chrome": [
+      { "label": "New tab", "type": "shortcut", "keys": "Ctrl+T" },
+      { "label": "Close tab", "type": "shortcut", "keys": "Ctrl+W" },
+      { "label": "Reopen tab", "type": "shortcut", "keys": "Ctrl+Shift+T" },
+      { "label": "Next tab", "type": "shortcut", "keys": "Ctrl+Tab" },
+      { "label": "Previous tab", "type": "shortcut", "keys": "Ctrl+Shift+Tab" },
+      { "label": "Reload", "type": "shortcut", "keys": "F5" },
+      { "label": "Find", "type": "shortcut", "keys": "Ctrl+F" },
+      { "label": "Address bar", "type": "shortcut", "keys": "Ctrl+L" },
+      { "label": "Downloads", "type": "shortcut", "keys": "Ctrl+J" },
+      { "label": "History", "type": "shortcut", "keys": "Ctrl+H" },
+      { "label": "New window", "type": "shortcut", "keys": "Ctrl+N" },
+      { "label": "Incognito", "type": "shortcut", "keys": "Ctrl+Shift+N" }
+    ],
+    "explorer": [
+      { "label": "New window", "type": "shortcut", "keys": "Ctrl+N" },
+      { "label": "New folder", "type": "shortcut", "keys": "Ctrl+Shift+N" },
+      { "label": "Up one level", "type": "shortcut", "keys": "Alt+Up" },
+      { "label": "Back", "type": "shortcut", "keys": "Alt+Left" },
+      { "label": "Forward", "type": "shortcut", "keys": "Alt+Right" },
+      { "label": "Rename", "type": "shortcut", "keys": "F2" },
+      { "label": "Properties", "type": "shortcut", "keys": "Alt+Enter" },
+      { "label": "Address bar", "type": "shortcut", "keys": "Ctrl+L" },
+      { "label": "Search", "type": "shortcut", "keys": "Ctrl+F" },
+      { "label": "Refresh", "type": "shortcut", "keys": "F5" },
+      { "label": "Preview pane", "type": "shortcut", "keys": "Alt+P" },
+      { "label": "Select all", "type": "shortcut", "keys": "Ctrl+A" }
+    ],
+    "Code": [
+      { "label": "Command palette", "type": "shortcut", "keys": "Ctrl+Shift+P" },
+      { "label": "Quick open", "type": "shortcut", "keys": "Ctrl+P" },
+      { "label": "Terminal", "type": "shortcut", "keys": "Ctrl+`" },
+      { "label": "Sidebar", "type": "shortcut", "keys": "Ctrl+B" },
+      { "label": "Find in files", "type": "shortcut", "keys": "Ctrl+Shift+F" },
+      { "label": "Go to line", "type": "shortcut", "keys": "Ctrl+G" },
+      { "label": "Format document", "type": "shortcut", "keys": "Shift+Alt+F" },
+      { "label": "Comment line", "type": "shortcut", "keys": "Ctrl+/" },
+      { "label": "Split editor", "type": "shortcut", "keys": "Ctrl+\\" },
+      { "label": "Close editor", "type": "shortcut", "keys": "Ctrl+W" },
+      { "label": "Reopen editor", "type": "shortcut", "keys": "Ctrl+Shift+T" },
+      { "label": "New file", "type": "shortcut", "keys": "Ctrl+N" }
+    ],
+    "WhatsApp": [
+      { "label": "New chat", "type": "shortcut", "keys": "Ctrl+Alt+N" },
+      { "label": "Search", "type": "shortcut", "keys": "Ctrl+Alt+/" },
+      { "label": "Search chat", "type": "shortcut", "keys": "Ctrl+Shift+F" },
+      { "label": "Mute", "type": "shortcut", "keys": "Ctrl+Shift+M" },
+      { "label": "Archive chat", "type": "shortcut", "keys": "Ctrl+Shift+A" },
+      { "label": "Pin chat", "type": "shortcut", "keys": "Ctrl+Alt+Shift+P" }
+    ],
+    "WhatsApp.Root": [
+      { "label": "New chat", "type": "shortcut", "keys": "Ctrl+Alt+N" },
+      { "label": "Search", "type": "shortcut", "keys": "Ctrl+Alt+/" },
+      { "label": "Search chat", "type": "shortcut", "keys": "Ctrl+Shift+F" },
+      { "label": "Mute", "type": "shortcut", "keys": "Ctrl+Shift+M" },
+      { "label": "Archive chat", "type": "shortcut", "keys": "Ctrl+Shift+A" },
+      { "label": "Pin chat", "type": "shortcut", "keys": "Ctrl+Alt+Shift+P" }
+    ],
+    "claude": [
+      { "label": "New chat", "type": "shortcut", "keys": "Ctrl+Shift+O" },
+      { "label": "Search chats", "type": "shortcut", "keys": "Ctrl+K" },
+      { "label": "Sidebar", "type": "shortcut", "keys": "Ctrl+Shift+S" },
+      { "label": "Copy last reply", "type": "shortcut", "keys": "Ctrl+Shift+C" },
+      { "label": "Settings", "type": "shortcut", "keys": "Ctrl+," },
+      { "label": "New window", "type": "shortcut", "keys": "Ctrl+N" },
+      { "label": "Find", "type": "shortcut", "keys": "Ctrl+F" },
+      { "label": "Close window", "type": "shortcut", "keys": "Ctrl+W" }
+    ],
+    "Notion": [
+      { "label": "Search", "type": "shortcut", "keys": "Ctrl+P" },
+      { "label": "New page", "type": "shortcut", "keys": "Ctrl+N" },
+      { "label": "New window", "type": "shortcut", "keys": "Ctrl+Shift+N" },
+      { "label": "Back", "type": "shortcut", "keys": "Ctrl+[" },
+      { "label": "Forward", "type": "shortcut", "keys": "Ctrl+]" },
+      { "label": "Sidebar", "type": "shortcut", "keys": "Ctrl+\\" },
+      { "label": "Parent page", "type": "shortcut", "keys": "Ctrl+Shift+U" },
+      { "label": "Dark mode", "type": "shortcut", "keys": "Ctrl+Shift+L" },
+      { "label": "Duplicate", "type": "shortcut", "keys": "Ctrl+D" },
+      { "label": "Copy page link", "type": "shortcut", "keys": "Ctrl+L" }
+    ],
+    "Figma": [
+      { "label": "Move", "type": "shortcut", "keys": "V" },
+      { "label": "Frame", "type": "shortcut", "keys": "F" },
+      { "label": "Rectangle", "type": "shortcut", "keys": "R" },
+      { "label": "Text", "type": "shortcut", "keys": "T" },
+      { "label": "Pen", "type": "shortcut", "keys": "P" },
+      { "label": "Zoom to fit", "type": "shortcut", "keys": "Shift+1" },
+      { "label": "Zoom to selection", "type": "shortcut", "keys": "Shift+2" },
+      { "label": "Group", "type": "shortcut", "keys": "Ctrl+G" },
+      { "label": "Ungroup", "type": "shortcut", "keys": "Ctrl+Shift+G" },
+      { "label": "Create component", "type": "shortcut", "keys": "Ctrl+Alt+K" },
+      { "label": "Duplicate", "type": "shortcut", "keys": "Ctrl+D" },
+      { "label": "Show or hide UI", "type": "shortcut", "keys": "Ctrl+\\" }
+    ]
+  }
+}

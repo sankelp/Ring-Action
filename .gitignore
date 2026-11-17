@@ -1,0 +1,8 @@
+RingAction.exe
+ring.json
+ring.json.bak
+icons/*.png
+!icons/brand/
+release/
+dist/
+

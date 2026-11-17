@@ -1,0 +1,30 @@
+{
+  "trigger": "Win+D",
+  "holdSelectMs": 300,
+  "selectOnHover": false,
+  "default": [
+    { "label": "Task Mgr", "type": "shortcut", "keys": "Ctrl+Shift+Esc" },
+    { "label": "Notepad", "type": "launch", "target": "notepad.exe" },
+    { "label": "Google", "type": "url", "target": "https://www.google.com" },
+    { "label": "Desktop", "type": "shortcut", "keys": "Win+D" },
+    { "label": "Terminal", "type": "launch", "target": "cmd.exe" },
+    { "label": "Snip", "type": "shortcut", "keys": "Win+Shift+S" },
+    { "label": "New item", "type": "shortcut", "keys": "Ctrl+Shift+Tab" },
+    { "label": "New item", "type": "shortcut", "keys": "Ctrl+Tab" },
+    { "label": "New item", "type": "shortcut", "keys": "Ctrl+Tab" },
+    { "label": "New item", "type": "shortcut", "keys": "Ctrl+Tab" },
+    { "label": "New item", "type": "shortcut", "keys": "Ctrl+Tab" },
+    { "label": "New item", "type": "shortcut", "keys": "Ctrl+Tab" }
+  ],
+  "apps": {
+    "chrome": [
+      { "label": "New tab", "type": "shortcut", "keys": "Ctrl+T" },
+      { "label": "Forward tab", "type": "shortcut", "keys": "Ctrl+Tab" },
+      { "label": "Reopen all tabs", "type": "shortcut", "keys": "Ctrl+Shift+T" },
+      { "label": "Previous tab", "type": "shortcut", "keys": "Ctrl+Shift+Tab" }
+    ]
+  },
+  "appOptions": {
+    "chrome": { "selectOnHover": true }
+  }
+}
